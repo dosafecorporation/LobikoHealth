@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achat Forfait - Lobiko Health | Mutuelle | Télémédecine en Afrique</title>
+    <meta name="description" content="Souscrivez à un forfait Lobiko Health et bénéficiez de nos services de télémédecine et mutuelle santé en RDC.">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #00a86b;
+            --accent-color: #ffa500;
+            --text-dark: #1a1a1a;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+            --gradient-secondary: linear-gradient(135deg, #00a86b 0%, #008555 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--bg-light);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Navigation */
+        .navbar-custom {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .navbar-brand i {
+            color: var(--accent-color);
+            font-size: 2rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-dark) !important;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .btn-primary-custom {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--white);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e2e8f0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Package Selection */
+        .package-selector {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 3rem;
+        }
+
+        .package-option {
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .package-option:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .package-option.selected {
+            border-color: var(--primary-color);
+            background: rgba(0, 102, 204, 0.05);
+        }
+
+        .package-option.featured {
+            border-color: var(--primary-color);
+            position: relative;
+        }
+
+        .package-option.featured::before {
+            content: 'Populaire';
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .package-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .package-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .package-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .package-features {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .package-features li {
+            padding: 0.25rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .package-features i {
+            color: var(--secondary-color);
+            font-size: 1rem;
+        }
+
+        /* Purchase Form */
+        .purchase-form {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid #e2e8f0;
+        }
+
+        .form-section {
+            margin-bottom: 3rem;
+        }
+
+        .form-section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--bg-light);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .required {
+            color: #dc3545;
+        }
+
+        .form-control {
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
+            outline: none;
+        }
+
+        .form-select {
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
+            outline: none;
+        }
+
+        .form-check {
+            margin-bottom: 1rem;
+        }
+
+        .form-check-input {
+            margin-right: 0.5rem;
+        }
+
+        .form-check-label {
+            color: var(--text-light);
+        }
+
+        .btn-submit {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 1.25rem 4rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--white);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            font-size: 1.1rem;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Order Summary */
+        .order-summary {
+            background: var(--bg-light);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid #e2e8f0;
+            position: sticky;
+            top: 100px;
+        }
+
+        .summary-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-section h5 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-link {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 0.25rem 0;
+        }
+
+        .footer-link:hover {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: #374151;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .purchase-form {
+                padding: 2rem;
+            }
+            
+            .order-summary {
+                position: static;
+                margin-top: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Utility Classes */
+        .text-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bg-light-custom {
+            background: var(--bg-light);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-custom" id="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <i class="ri-heart-pulse-fill"></i>
+                    Lobiko Health
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#about">À propos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#pricing">Tarifs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="equipe.html">Notre équipe</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <a href="#" class="btn btn-primary-custom">
+                            <i class="ri-user-line me-2"></i>Connexion
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <div class="hero-content animate-fade-in-up">
+                        <h1 class="hero-title">
+                            Souscrivez à votre <span class="text-gradient">forfait</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Choisissez le forfait qui correspond à vos besoins et rejoignez notre communauté 
+                            de membres qui bénéficient de soins de santé accessibles et de qualité.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Purchase Form Section -->
+    <section class="section bg-light-custom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Package Selection -->
+                    <div class="package-selector">
+                        <h3 class="mb-4">Sélectionnez votre forfait</h3>
+                        
+                        <div class="package-option" data-package="essentiel" data-price="15">
+                            <div class="package-header">
+                                <div class="package-name">Forfait Essentiel</div>
+                                <div class="package-price">15$ / mois</div>
+                            </div>
+                            <ul class="package-features">
+                                <li><i class="ri-check-line"></i> 3 consultations médicales</li>
+                                <li><i class="ri-check-line"></i> Prescription électronique</li>
+                                <li><i class="ri-check-line"></i> Support WhatsApp</li>
+                                <li><i class="ri-check-line"></i> Dossier médical numérique</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="package-option featured selected" data-package="confort" data-price="25">
+                            <div class="package-header">
+                                <div class="package-name">Forfait Confort</div>
+                                <div class="package-price">25$ / mois</div>
+                            </div>
+                            <ul class="package-features">
+                                <li><i class="ri-check-line"></i> Consultations illimitées</li>
+                                <li><i class="ri-check-line"></i> Livraison médicaments</li>
+                                <li><i class="ri-check-line"></i> Analyses de base</li>
+                                <li><i class="ri-check-line"></i> Consultation spécialiste</li>
+                                <li><i class="ri-check-line"></i> Support prioritaire 24/7</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="package-option" data-package="premium" data-price="45">
+                            <div class="package-header">
+                                <div class="package-name">Forfait Premium</div>
+                                <div class="package-price">45$ / mois</div>
+                            </div>
+                            <ul class="package-features">
+                                <li><i class="ri-check-line"></i> Tous les services Confort</li>
+                                <li><i class="ri-check-line"></i> Hospitalisation couverte</li>
+                                <li><i class="ri-check-line"></i> Imagerie médicale</li>
+                                <li><i class="ri-check-line"></i> Soins dentaires</li>
+                                <li><i class="ri-check-line"></i> Optique</li>
+                                <li><i class="ri-check-line"></i> Médecin de famille dédié</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Purchase Form -->
+                    <div class="purchase-form">
+                        <form id="purchaseForm">
+                            <!-- Informations personnelles -->
+                            <div class="form-section">
+                                <h4 class="form-section-title">
+                                    <i class="ri-user-line me-2"></i>
+                                    Informations personnelles
+                                </h4>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="nom" class="form-label">Nom <span class="required">*</span></label>
+                                            <input type="text" class="form-control" id="nom" name="nom" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="postnom" class="form-label">Post-nom</label>
+                                            <input type="text" class="form-control" id="postnom" name="postnom">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="prenom" class="form-label">Prénom <span class="required">*</span></label>
+                                            <input type="text" class="form-control" id="prenom" name="prenom" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="sexe" class="form-label">Sexe <span class="required">*</span></label>
+                                            <select class="form-select" id="sexe" name="sexe" required>
+                                                <option value="">Sélectionnez</option>
+                                                <option value="masculin">Masculin</option>
+                                                <option value="feminin">Féminin</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="date_naissance" class="form-label">Date de naissance <span class="required">*</span></label>
+                                            <input type="date" class="form-control" id="date_naissance" name="date_naissance" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email" class="form-label">Adresse email <span class="required">*</span></label>
+                                            <input type="email" class="form-control" id="email" name="email" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="adresse" class="form-label">Adresse complète <span class="required">*</span></label>
+                                    <textarea class="form-control" id="adresse" name="adresse" rows="3" 
+                                        placeholder="Numéro, rue, quartier, commune, ville..." required></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Informations de contact -->
+                            <div class="form-section">
+                                <h4 class="form-section-title">
+                                    <i class="ri-phone-line me-2"></i>
+                                    Informations de contact
+                                </h4>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="whatsapp" class="form-label">Numéro WhatsApp <span class="required">*</span></label>
+                                            <input type="tel" class="form-control" id="whatsapp" name="whatsapp" 
+                                                placeholder="+243 XXX XXX XXX" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="telephone" class="form-label">Numéro de téléphone alternatif</label>
+                                            <input type="tel" class="form-control" id="telephone" name="telephone" 
+                                                placeholder="+243 XXX XXX XXX">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Informations médicales -->
+                            <div class="form-section">
+                                <h4 class="form-section-title">
+                                    <i class="ri-heart-pulse-line me-2"></i>
+                                    Informations médicales
+                                </h4>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Avez-vous une maladie chronique ? <span class="required">*</span></label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="maladie_chronique" id="maladie_oui" value="oui">
+                                        <label class="form-check-label" for="maladie_oui">
+                                            Oui
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="maladie_chronique" id="maladie_non" value="non" checked>
+                                        <label class="form-check-label" for="maladie_non">
+                                            Non
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group" id="maladie_details" style="display: none;">
+                                    <label for="quelle_maladie" class="form-label">Laquelle ? <span class="required">*</span></label>
+                                    <textarea class="form-control" id="quelle_maladie" name="quelle_maladie" rows="3" 
+                                        placeholder="Décrivez votre/vos maladie(s) chronique(s)..."></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="allergies" class="form-label">Allergies connues</label>
+                                    <textarea class="form-control" id="allergies" name="allergies" rows="2" 
+                                        placeholder="Mentionnez vos allergies médicamenteuses ou alimentaires..."></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Informations de paiement -->
+                            <div class="form-section">
+                                <h4 class="form-section-title">
+                                    <i class="ri-bank-card-line me-2"></i>
+                                    Informations de paiement
+                                </h4>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="mode_paiement" class="form-label">Mode de paiement <span class="required">*</span></label>
+                                            <select class="form-select" id="mode_paiement" name="mode_paiement" required>
+                                                <option value="">Sélectionnez</option>
+                                                <option value="mpesa">M-Pesa</option>
+                                                <option value="orange_money">Orange Money</option>
+                                                <option value="airtel_money">Airtel Money</option>
+                                                <option value="carte_bancaire">Carte bancaire</option>
+                                                <option value="virement">Virement bancaire</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="numero_paiement" class="form-label">Numéro de paiement <span class="required">*</span></label>
+                                            <input type="text" class="form-control" id="numero_paiement" name="numero_paiement" 
+                                                placeholder="Numéro de compte ou carte" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Conditions -->
+                            <div class="form-section">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="conditions" name="conditions" required>
+                                    <label class="form-check-label" for="conditions">
+                                        J'accepte les <a href="#" class="text-primary">conditions d'utilisation</a> 
+                                        et la <a href="#" class="text-primary">politique de confidentialité</a> <span class="required">*</span>
+                                    </label>
+                                </div>
+                                
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="newsletter" name="newsletter">
+                                    <label class="form-check-label" for="newsletter">
+                                        Je souhaite recevoir les actualités et offres spéciales de Lobiko Health
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-submit">
+                                    <i class="ri-secure-payment-line me-2"></i>
+                                    Finaliser l'achat
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Order Summary -->
+                <div class="col-lg-4">
+                    <div class="order-summary">
+                        <h4 class="summary-title">Récapitulatif de commande</h4>
+                        
+                        <div class="summary-item">
+                            <span>Forfait sélectionné:</span>
+                            <span id="selected-package">Confort</span>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span>Prix mensuel:</span>
+                            <span id="package-price">25$</span>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span>Frais d'activation:</span>
+                            <span>Gratuit</span>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span><strong>Total à payer:</strong></span>
+                            <span id="total-price"><strong>25$</strong></span>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <small class="text-muted">
+                                <i class="ri-information-line me-1"></i>
+                                Votre abonnement sera automatiquement renouvelé chaque mois. 
+                                Vous pouvez annuler à tout moment.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-section">
+                        <h5>Lobiko Health</h5>
+                        <p class="text-muted">
+                            Votre partenaire de confiance pour des soins de santé accessibles et de qualité. 
+                            Nous révolutionnons l'accès aux services médicaux grâce à la technologie.
+                        </p>
+                        <div class="social-links">
+                            <a href="https://web.facebook.com/profile.php?id=61577894590438" class="social-link">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="ri-linkedin-box-fill"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5>Services</h5>
+                        <a href="#" class="footer-link">Téléconsultation</a>
+                        <a href="#" class="footer-link">Pharmacie en ligne</a>
+                        <a href="#" class="footer-link">Assurance santé</a>
+                        <a href="#" class="footer-link">Analyses médicales</a>
+                        <a href="#" class="footer-link">Urgences</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5>Entreprise</h5>
+                        <a href="#" class="footer-link">À propos</a>
+                        <a href="equipe.html" class="footer-link">Notre équipe</a>
+                        <a href="#" class="footer-link">Carrières</a>
+                        <a href="#" class="footer-link">Presse</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-section">
+                        <h5>Newsletter</h5>
+                        <p class="text-muted">
+                            Restez informé des dernières actualités santé et de nos nouveaux services.
+                        </p>
+                        <div class="d-flex gap-2">
+                            <input type="email" class="form-control" placeholder="Votre email">
+                            <button class="btn btn-primary-custom">S'abonner</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">© 2024 Lobiko Health. Tous droits réservés.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="footer-link me-3">Conditions d'utilisation</a>
+                    <a href="#" class="footer-link">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            document.getElementById('preloader').style.display = 'none';
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Package selection
+        document.querySelectorAll('.package-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from all options
+                document.querySelectorAll('.package-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+                
+                // Update order summary
+                const packageName = this.dataset.package;
+                const packagePrice = this.dataset.price;
+                
+                document.getElementById('selected-package').textContent = 
+                    packageName.charAt(0).toUpperCase() + packageName.slice(1);
+                document.getElementById('package-price').textContent = packagePrice + '$';
+                document.getElementById('total-price').innerHTML = '<strong>' + packagePrice + '$</strong>';
+            });
+        });
+
+        // Show/hide chronic disease details
+        document.querySelectorAll('input[name="maladie_chronique"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const maladieDetails = document.getElementById('maladie_details');
+                const quelleInput = document.getElementById('quelle_maladie');
+                
+                if (this.value === 'oui') {
+                    maladieDetails.style.display = 'block';
+                    quelleInput.required = true;
+                } else {
+                    maladieDetails.style.display = 'none';
+                    quelleInput.required = false;
+                    quelleInput.value = '';
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('purchaseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Get selected package
+            const selectedPackage = document.querySelector('.package-option.selected');
+            data.forfait = selectedPackage.dataset.package;
+            data.prix = selectedPackage.dataset.price;
+            
+            // Show success message
+            alert('Merci pour votre souscription ! Vous recevrez un email de confirmation avec les détails de votre forfait et les instructions de paiement.');
+            
+            // Reset form
+            this.reset();
+            
+            // Reset package selection to default
+            document.querySelectorAll('.package-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            document.querySelector('.package-option.featured').classList.add('selected');
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.package-selector, .purchase-form, .order-summary').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Get package from URL parameter if available
+        const urlParams = new URLSearchParams(window.location.search);
+        const packageParam = urlParams.get('package');
+        if (packageParam) {
+            const targetPackage = document.querySelector(`[data-package="${packageParam}"]`);
+            if (targetPackage) {
+                document.querySelectorAll('.package-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                targetPackage.classList.add('selected');
+                targetPackage.click();
+            }
+        }
+    </script>
+</body>
+
+</html>
+

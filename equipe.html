@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Équipe - Lobiko Health | Mutuelle | Télémédecine en Afrique</title>
+    <meta name="description" content="Découvrez l'équipe de professionnels de santé et d'experts technologiques qui rendent possible la révolution de la télémédecine en RDC.">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #00a86b;
+            --accent-color: #ffa500;
+            --text-dark: #1a1a1a;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+            --gradient-secondary: linear-gradient(135deg, #00a86b 0%, #008555 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--bg-light);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Navigation */
+        .navbar-custom {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .navbar-brand i {
+            color: var(--accent-color);
+            font-size: 2rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-dark) !important;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .btn-primary-custom {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--white);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e2e8f0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Team Member Cards */
+        .team-member {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            object-fit: cover;
+            border: 4px solid var(--bg-light);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover .member-photo {
+            transform: scale(1.1);
+            border-color: var(--primary-color);
+        }
+
+        .member-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .member-role {
+            font-size: 1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .member-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        /* Leadership Section */
+        .leadership-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .leadership-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .leadership-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        /* Values Section */
+        .value-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .value-icon i {
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .value-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .value-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-section h5 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-link {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 0.25rem 0;
+        }
+
+        .footer-link:hover {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: #374151;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .leadership-card {
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Utility Classes */
+        .text-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bg-light-custom {
+            background: var(--bg-light);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-custom" id="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <i class="ri-heart-pulse-fill"></i>
+                    Lobiko Health
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#about">À propos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#pricing">Tarifs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="equipe.html">Notre équipe</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <a href="#" class="btn btn-primary-custom">
+                            <i class="ri-user-line me-2"></i>Connexion
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <div class="hero-content animate-fade-in-up">
+                        <h1 class="hero-title">
+                            Notre <span class="text-gradient">Équipe</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Découvrez les professionnels passionnés qui révolutionnent l'accès aux soins de santé 
+                            en République Démocratique du Congo grâce à l'innovation technologique.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="section bg-light-custom">
+        <div class="container">
+            <h2 class="section-title">Direction</h2>
+            <p class="section-subtitle">
+                Les visionnaires qui guident Lobiko Health vers un avenir où les soins de santé sont accessibles à tous.
+            </p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-6 mb-4">
+                    <div class="leadership-card">
+                        <div class="row align-items-center">
+                            <div class="col-md-4 text-center">
+                                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=300&fit=crop&crop=face" 
+                                     alt="Dr. Jean-Baptiste Mukendi" class="leadership-photo">
+                            </div>
+                            <div class="col-md-8">
+                                <h3 class="member-name">Dr. Jean-Baptiste Mukendi</h3>
+                                <p class="member-role">Directeur Général & Fondateur</p>
+                                <p class="member-description">
+                                    Médecin diplômé de l'Université de Kinshasa avec plus de 15 ans d'expérience 
+                                    en santé publique. Passionné par l'innovation technologique au service de la santé, 
+                                    il a fondé Lobiko Health pour démocratiser l'accès aux soins médicaux de qualité.
+                                </p>
+                                <div class="member-social">
+                                    <a href="#" class="social-icon">
+                                        <i class="ri-linkedin-box-line"></i>
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <i class="ri-twitter-line"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="leadership-card">
+                        <div class="row align-items-center">
+                            <div class="col-md-4 text-center">
+                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop&crop=face" 
+                                     alt="Marie Kabongo" class="leadership-photo">
+                            </div>
+                            <div class="col-md-8">
+                                <h3 class="member-name">Marie Kabongo</h3>
+                                <p class="member-role">Directrice Technique</p>
+                                <p class="member-description">
+                                    Ingénieure en informatique spécialisée en santé numérique. Elle supervise 
+                                    le développement de notre plateforme technologique et assure l'intégration 
+                                    des solutions innovantes pour améliorer l'expérience patient.
+                                </p>
+                                <div class="member-social">
+                                    <a href="#" class="social-icon">
+                                        <i class="ri-linkedin-box-line"></i>
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <i class="ri-github-line"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Medical Team Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Équipe Médicale</h2>
+            <p class="section-subtitle">
+                Nos médecins spécialisés sont disponibles 24h/24 pour vous offrir des consultations de qualité.
+            </p>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=300&fit=crop&crop=face" 
+                             alt="Dr. Paul Mbuyi" class="member-photo">
+                        <h4 class="member-name">Dr. Paul Mbuyi</h4>
+                        <p class="member-role">Médecin Généraliste</p>
+                        <p class="member-description">
+                            Spécialiste en médecine générale avec 10 ans d'expérience. 
+                            Expert en téléconsultation et suivi des maladies chroniques.
+                        </p>
+                        <div class="member-social">
+                            <a href="#" class="social-icon">
+                                <i class="ri-linkedin-box-line"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="ri-mail-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1594824475317-29bb4b1c9b3d?w=300&h=300&fit=crop&crop=face" 
+                             alt="Dr. Grace Tshala" class="member-photo">
+                        <h4 class="member-name">Dr. Grace Tshala</h4>
+                        <p class="member-role">Pédiatre</p>
+                        <p class="member-description">
+                            Pédiatre certifiée spécialisée dans les soins aux enfants et adolescents. 
+                            Passionnée par la prévention et l'éducation sanitaire.
+                        </p>
+                        <div class="member-social">
+                            <a href="#" class="social-icon">
+                                <i class="ri-linkedin-box-line"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="ri-mail-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=300&fit=crop&crop=face" 
+                             alt="Dr. Emmanuel Kasongo" class="member-photo">
+                        <h4 class="member-name">Dr. Emmanuel Kasongo</h4>
+                        <p class="member-role">Cardiologue</p>
+                        <p class="member-description">
+                            Cardiologue expérimenté spécialisé dans les maladies cardiovasculaires. 
+                            Expert en télésurveillance cardiaque et prévention.
+                        </p>
+                        <div class="member-social">
+                            <a href="#" class="social-icon">
+                                <i class="ri-linkedin-box-line"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="ri-mail-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Team Section -->
+    <section class="section bg-light-custom">
+        <div class="container">
+            <h2 class="section-title">Équipe Technique</h2>
+            <p class="section-subtitle">
+                Les experts technologiques qui développent et maintiennent notre plateforme innovante.
+            </p>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" 
+                             alt="David Mulamba" class="member-photo">
+                        <h4 class="member-name">David Mulamba</h4>
+                        <p class="member-role">Développeur Full-Stack</p>
+                        <p class="member-description">
+                            Développeur expérimenté spécialisé dans les applications web et mobiles. 
+                            Responsable de l'architecture technique de notre plateforme.
+                        </p>
+                        <div class="member-social">
+                            <a href="#" class="social-icon">
+                                <i class="ri-linkedin-box-line"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="ri-github-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face" 
+                             alt="Sarah Nkomo" class="member-photo">
+                        <h4 class="member-name">Sarah Nkomo</h4>
+                        <p class="member-role">UX/UI Designer</p>
+                        <p class="member-description">
+                            Designer experte en expérience utilisateur, elle conçoit des interfaces 
+                            intuitives pour rendre nos services accessibles à tous.
+                        </p>
+                        <div class="member-social">
+                            <a href="#" class="social-icon">
+                                <i class="ri-linkedin-box-line"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="ri-dribbble-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face" 
+                             alt="Patrick Ilunga" class="member-photo">
+                        <h4 class="member-name">Patrick Ilunga</h4>
+                        <p class="member-role">Ingénieur DevOps</p>
+                        <p class="member-description">
+                            Spécialiste en infrastructure cloud et sécurité. Il assure la disponibilité 
+                            et la performance de nos services 24h/24.
+                        </p>
+                        <div class="member-social">
+                            <a href="#" class="social-icon">
+                                <i class="ri-linkedin-box-line"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="ri-github-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Nos Valeurs</h2>
+            <p class="section-subtitle">
+                Les principes qui guident notre mission et notre engagement envers nos patients.
+            </p>
+            
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="ri-heart-line"></i>
+                        </div>
+                        <h4 class="value-title">Compassion</h4>
+                        <p class="value-description">
+                            Nous plaçons l'humain au cœur de tout ce que nous faisons, 
+                            avec empathie et bienveillance.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="ri-lightbulb-line"></i>
+                        </div>
+                        <h4 class="value-title">Innovation</h4>
+                        <p class="value-description">
+                            Nous utilisons la technologie pour créer des solutions 
+                            innovantes et accessibles.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="ri-shield-check-line"></i>
+                        </div>
+                        <h4 class="value-title">Excellence</h4>
+                        <p class="value-description">
+                            Nous nous engageons à fournir des soins de la plus haute 
+                            qualité à tous nos patients.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="ri-team-line"></i>
+                        </div>
+                        <h4 class="value-title">Solidarité</h4>
+                        <p class="value-description">
+                            Notre mutuelle solidaire garantit l'accès aux soins 
+                            pour tous, sans exception.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-section">
+                        <h5>Lobiko Health</h5>
+                        <p class="text-muted">
+                            Votre partenaire de confiance pour des soins de santé accessibles et de qualité. 
+                            Nous révolutionnons l'accès aux services médicaux grâce à la technologie.
+                        </p>
+                        <div class="social-links">
+                            <a href="https://web.facebook.com/profile.php?id=61577894590438" class="social-link">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="ri-linkedin-box-fill"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5>Services</h5>
+                        <a href="#" class="footer-link">Téléconsultation</a>
+                        <a href="#" class="footer-link">Pharmacie en ligne</a>
+                        <a href="#" class="footer-link">Assurance santé</a>
+                        <a href="#" class="footer-link">Analyses médicales</a>
+                        <a href="#" class="footer-link">Urgences</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5>Entreprise</h5>
+                        <a href="#" class="footer-link">À propos</a>
+                        <a href="equipe.html" class="footer-link">Notre équipe</a>
+                        <a href="#" class="footer-link">Carrières</a>
+                        <a href="#" class="footer-link">Presse</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-section">
+                        <h5>Newsletter</h5>
+                        <p class="text-muted">
+                            Restez informé des dernières actualités santé et de nos nouveaux services.
+                        </p>
+                        <div class="d-flex gap-2">
+                            <input type="email" class="form-control" placeholder="Votre email">
+                            <button class="btn btn-primary-custom">S'abonner</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">© 2024 Lobiko Health. Tous droits réservés.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="footer-link me-3">Conditions d'utilisation</a>
+                    <a href="#" class="footer-link">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            document.getElementById('preloader').style.display = 'none';
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.team-member, .leadership-card, .value-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
+
