@@ -1,1137 +1,1193 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lobiko Health</title>
-    <link rel="icon" type="images/x-icon" href="images/favicon.ico">
-    <!-- remix icon  -->
+    <title>Lobiko Health - Plateforme de Santé Numérique | Télémédecine en Afrique</title>
+    <meta name="description" content="Lobiko Health révolutionne l'accès aux soins de santé en RDC. Téléconsultations, pharmacie en ligne, assurance santé digitale via WhatsApp.">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="css/remixicon.css">
-    <!-- bootstrap  -->
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #00a86b;
+            --accent-color: #ffa500;
+            --text-dark: #1a1a1a;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+            --gradient-secondary: linear-gradient(135deg, #00a86b 0%, #008555 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--bg-light);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Navigation */
+        .navbar-custom {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .navbar-brand i {
+            color: var(--accent-color);
+            font-size: 2rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-dark) !important;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .btn-primary-custom {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--white);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e2e8f0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-whatsapp:hover {
+            background: #128c7e;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-secondary-custom {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary-custom:hover {
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Trust Indicators */
+        .trust-section {
+            padding: 3rem 0;
+            background: var(--white);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .trust-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .trust-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .trust-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Feature Cards */
+        .feature-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid #e2e8f0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-icon i {
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .feature-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Pricing Cards */
+        .pricing-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            height: 100%;
+            position: relative;
+            border: 1px solid #e2e8f0;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Populaire';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-period {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pricing-features i {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            margin: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            object-fit: cover;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .testimonial-role {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .stars {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--white);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #e2e8f0;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-light);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-section h5 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-link {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 0.25rem 0;
+        }
+
+        .footer-link:hover {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: #374151;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+            
+            .pricing-card.featured:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Utility Classes */
+        .text-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bg-gradient {
+            background: var(--gradient-primary);
+        }
+
+        .bg-light-custom {
+            background: var(--bg-light);
+        }
+    </style>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbarCollapse">
+    <!-- Preloader -->
     <div id="preloader">
-        <div class="status">
-            <div class="spinner">
-                <div class="dot1"></div>
-                <div class="dot2"></div>
-            </div>
-        </div>
+        <div class="spinner"></div>
     </div>
-    <!-- header section start with navbar -->
 
+    <!-- Navigation -->
     <header>
-        <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-light" id="navbar">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-custom" id="navbar">
             <div class="container">
-                <div class="navbar-brand logo">
-                    <a class="navbar-caption fs-4 text-primary fw-bold ls-1" href="#"><i
-                            class="ri-blaze-fill align-top text-warning fs-3"></i>LOBIKO HEALTH
-                    </a>
-                </div>
+                <a class="navbar-brand" href="#">
+                    <i class="ri-heart-pulse-fill"></i>
+                    Lobiko Health
+                </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="fw-bold text-primary fs-4"><i class="ri-menu-5-line"></i></span>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav mx-auto" id="navbar-navlist">
+                    <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-primary" href="#home">Accueil</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-primary" href="#about">Qui sommes-nous</a>
+                            <a class="nav-link" href="#home">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-primary" href="#services">Services</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-primary" href="#price">Tarifs</a>
+                            <a class="nav-link" href="#about">À propos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-primary" href="#testimonials">Témoignages</a>
+                            <a class="nav-link" href="#services">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-primary" href="#contacts">Contact</a>
+                            <a class="nav-link" href="#pricing">Tarifs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#testimonials">Témoignages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
                         </li>
                     </ul>
-                    <div class="nav-btn">
-                        <a href="#" class="btn btn-light text-primary rounded-2 border">Connexion<i
-                                class="ri-arrow-right-line border-start ms-2 ps-2"></i></a>
+                    <div class="d-flex">
+                        <a href="#" class="btn btn-primary-custom">
+                            <i class="ri-user-line me-2"></i>Connexion
+                        </a>
                     </div>
                 </div>
             </div>
         </nav>
     </header>
-    <!-- header part end  -->
 
-    <!-- hero part with images -->
-
-    <section class="hero-part sectoin bg-home-8" id="home">
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
         <div class="container">
-            <div class="row align-items-center justify-content-between position-relative g-4">
+            <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <div class="main-content text-start text-primary">
-                        <div class="mb-3">
-                            <p><i class="ri-blaze-fill align-top text-warning fs-3 me-1 "></i> <span
-                                    class="fs-6 text-primary fw-bold ls-2">LOBIKO HEALTH
-                                </span></p>
-                        </div>
-                        <h1 class="display-5 mb-2 lh-base"><span class="text-warning">Soins accessibles à domicile</span></h1>
-
-                        <p class="text-muted ls-1">Lobiko Health vous connecte à des médecins qualifiés, en toute sécurité, où que vous soyez.</p>
-
-                        <div class="main-btn mt-4">
-                            <p class="text-muted">Accédez aux soins dès maintenant</p>
-                            <a href="#" class="btn btn-primary rounded-2 text-light"><i class="ri-whatsapp-line align-middle me-2 pe-2 border-end"></i>WhatsApp</a>
-                            <a href="#" class="btn btn-light rounded-2 text-primary border"><i class="ri-app-store-line align-middle me-2 pe-2 border-end"></i>App Store</a>
-                            <a href="#" class="btn btn-primary rounded-2 text-light"><i class="ri-google-play-line align-middle me-2 pe-2 border-end"></i>Google Play Store</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 position-relative text-center">
-                    <img src="images/side-6.png" alt="" class="img-fluid pt-3">
-                </div>
-            </div>
-        </div>
-        <img src="images/header_4_bubble.png" alt="" class="img-fluid header-img w-100 position-absolute top-0 z-n1">
-    </section>
-    <!-- hero-part end -->
-
-    <!-- brand-part start -->
-    <section class="section brand-part pt-5" id="brand">
-        <div class="container">
-            <div class="brand">
-                <!-- row start  -->
-                <div class="row align-items-center justify-content-center text-center g-4">
-                    <div class="col-lg-2 col-6">
-                        <a href="#">
-                            <img src="images/logo/amazon.svg" alt="" class="img-fluid brand-logo">
-                        </a>
-                    </div>
-                    <div class="col-lg-2 col-6">
-                        <a href="#">
-                            <img src="images/logo/google.svg" alt="" class="img-fluid brand-logo">
-                        </a>
-                    </div>
-                    <div class="col-lg-2 col-6">
-                        <a href="#">
-                            <img src="images/logo/lenovo.svg" alt="" class="img-fluid brand-logo">
-                        </a>
-                    </div>
-                    <div class="col-lg-2 col-6">
-                        <a href="#">
-                            <img src="images/logo/paypal.svg" alt="" class="img-fluid brand-logo">
-                        </a>
-                    </div>
-                    <div class="col-lg-2 col-6">
-                        <a href="#">
-                            <img src="images/logo/shopify.svg" alt="" class="img-fluid brand-logo">
-                        </a>
-                    </div>
-                    <div class="col-lg-2 col-6">
-                        <a href="#">
-                            <img src="images/logo/spotify.svg" alt="" class="img-fluid brand-logo">
-                        </a>
-                    </div>
-                </div>
-                <!-- row end -->
-            </div>
-        </div>
-    </section>
-    <!-- brand-part end -->
-
-
-    <!-- about-part start -->
-    <section class="section about-part" id="about">
-        <div class="container">
-
-            <section class="section services position-relative">
-                <!-- row start  -->
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-lg-6">
-                        <div class="img-part mb-2">
-                            <img src="images/about/about-3.png" alt="" class="img-fluid rounded-4">
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="text-part">
-                            <div class="title-part text-primary mt-4">
-                                <h4 class="lh-base">Qui sommes-nous</h4>
-                                <p class="text-base lg:text-lg text-gray-700 leading-relaxed">
-                                    <strong>Lobiko Health</strong> est une plateforme de santé digitale qui facilite l’accès aux soins en connectant <strong>patients, médecins, prestataires de soins</strong> et <strong>assureurs</strong> via un canal simple et familier : <span class="text-green-600 font-semibold">WhatsApp</span>.
-                                    <br class="hidden md:block" />
-                                </p>
-
-                            </div>
-                        </div>
-
-                        <div class="icon-text mt-4">
-                            <p>Notre mission : proposer des services de santé accessibles, intégrés et de qualité, partout en Afrique.</p>
-                            <ul class="list-unstyled">
-                                <li><i class="ri-checkbox-circle-fill align-middle text-warning fs-4 me-3"></i>
-                                   Télémédecine.
-                                </li>
-                                <li><i class="ri-checkbox-circle-fill align-middle text-warning fs-4 me-3"></i>
-                                    Assurance santé digitale.
-                                </li>
-                                <li><i class="ri-checkbox-circle-fill align-middle text-warning fs-4 me-3"></i>
-                                    Crédit santé.
-                                </li>
-                                <li><i class="ri-checkbox-circle-fill align-middle text-warning fs-4 me-3"></i>
-                                    Gestion du risque maladie.
-                                </li>
-                                <li><i class="ri-checkbox-circle-fill align-middle text-warning fs-4 me-3"></i>
-                                     Prélevement à domicile.
-                                </li>
-                                <li><i class="ri-checkbox-circle-fill align-middle text-warning fs-4 me-3"></i>
-                                     livraison des produits à domicile.
-                                </li>
-                                <li><i class="ri-checkbox-circle-fill align-middle text-warning fs-4 me-3"></i>
-                                     Réseau de médecins partenaires.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- row end  -->
-            </section>
-
-            <!-- services start  -->
-
-            <div class="services-part" id="services">
-                <!-- row start  -->
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-lg-4 order-lg-1 order-2">
-                        <div class="text-part">
-                            <div class="title-part text-primary">
-                                <h4 class="lh-base">Pourquoi nous faire confiance</h4>
-                            </div>
-                        </div>
-                        
-                        <div class="icon-text mt-4">
-                            <ul class="list-unstyled">
-                                <li><i class="ri-checkbox-circle-fill align-middle text-warning fs-4 me-3"></i>
-                                    Médecins qualifiés disponibles 7j/7.
-                                </li>
-                                <li><i class="ri-checkbox-circle-fill align-middle text-warning fs-4 me-3"></i>
-                                    Suivi médical personnalisé.
-                                </li>
-                                <li><i class="ri-checkbox-circle-fill align-middle text-warning fs-4 me-3"></i>
-                                    Zéro stress – soins à domicile.
-                                </li>
-                                <li><i class="ri-checkbox-circle-fill align-middle text-warning fs-4 me-3"></i>
-                                    Retention des coûts.
-                                </li>
-                                <li><i class="ri-checkbox-circle-fill align-middle text-warning fs-4 me-3"></i>
-                                    Sécurité & confidentialité.
-                                </li>
-                                
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 order-lg-2 order-1">
-                        <div class="img-part mb-3">
-                            <img src="images/about/about.png" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                </div>
-                <!-- row end  -->
-            </div>
-            <!-- Services-part end  -->
-
-            <section class="section services position-relative">
-                <!-- row start  -->
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-lg-6">
-                        <div class="img-part mb-2">
-                            <img src="images/about/about-3.png" alt="" class="img-fluid rounded-4">
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="text-part">
-
-
-                            <div class="title-part text-primary mt-4">
-                                <h4 class="lh-base">Comment ça marche ?</h4>
-                            </div>
-                        </div>
-
-                        <div class="icon-text mt-4">
-                            <ul class="list-unstyled">
-                                <li><i class="ri-checkbox-circle-fill align-middle text-warning fs-4 me-3"></i>
-                                    Cliquez sur le lien WhatsApp ci-dessous
-                                </li>
-                                
-                                <li><i class="ri-checkbox-circle-fill align-middle text-warning fs-4 me-3"></i>
-                                    Discutez avec un médecin qualifié
-                                </li>
-                                <li><i class="ri-checkbox-circle-fill align-middle text-warning fs-4 me-3"></i>
-                                    Effectuez votre consultation à distance
-                                </li>
-                        
-                                <li><i class="ri-checkbox-circle-fill align-middle text-warning fs-4 me-3"></i>
-                                    Examinez-vous depuis chez vous
-                                </li>
-                                <li><i class="ri-checkbox-circle-fill align-middle text-warning fs-4 me-3"></i>
-                                    Recevez vos résultats par téléphone
-                                </li>
-                                <li><i class="ri-checkbox-circle-fill align-middle text-warning fs-4 me-3"></i>
-                                    Récevez vos médicaments depuis chez vous
-                                </li>
-                            </ul>
-                            <div class="mt-4">
-                                <a href="#" class="text-warning icon-link icon-link-hover">Commencer maintenant !<i
-                                        class="ri-arrow-right-line align-middle bi mb-2"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- row end  -->
-            </section>
-
-            <!-- price-part start  -->
-            <section class="section price-part bg-light" id="price">
-                <div class="container">
-                    <div class="text-part text-center pb-2">
-                        <div class="title-part text-primary">
-                            <h4>Voici nos offres</h4>
-                        </div>
-                        <div class="title-part text-primary text-center">
-                            <p>
-                            Ces offres sont destinées aux patients ne disposant pas d’assurance et peuvent être réglées à l’avance par paiement électronique (mobile money).
-                            </p>
-                        </div>
-                    </div>
-                    <!-- card-part start  -->
-                    <div class="card-part mt-5">
-                        <!-- row start -->
-                        <div class="row g-4 justify-content-center">
-                            <div class="col-lg-3 col-md-6">
-                                <!-- card start  -->
-                                <div class="card p-3 rounded-4 border-0 shadow h-100 m-auto">
-                                    <div class="card-body">
-                                        <h3 class="card-title text-primary"><i
-                                                class="ri-quill-pen-fill align-bottom fs-2 me-3"></i>Basic</h3>
-                                        <p>Pour les soins de base</p>
-                                        <h1 class="display-3"><span class="text-info">$</span>10<span
-                                                class="fs-6 text-secondary">par
-                                               mois</span></h1>
-
-                                        <div class="card-title-1 mt-4">
-                                            <h6 class="text-primary">Inlus:</h6>
-                                            <div class="list mt-4">
-                                                <ul class="list-unstyled">
-                                                    <li><i
-                                                            class="ri-checkbox-circle-line align-middle text-primary fs-4 me-3"></i>Consultations médicales
-                                                    </li>
-                                                    <li><i
-                                                            class="ri-checkbox-circle-line align-middle text-primary fs-4 me-3"></i>Examens de base
-                                                    </li>
-                                                    <li><i
-                                                            class="ri-checkbox-circle-line align-middle text-primary fs-4 me-3"></i>Médicaments de base
-                                                    </li>
-                                                    
-                                                </ul>
-                                                <div class=" text-center my-4">
-                                                    <a href="#" class="text-primary">Voir toutes les fonctionnalités</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-footer link-part text-center border-0">
-                                        <a href="#" class="btn btn-primary text-light border-0 shadow-none">1 consultation gratuite
-                                            free</a>
-                                    </div>
-                                </div>
-                                <!-- card end  -->
-                            </div>
-
-                            <div class="col-lg-3 col-md-6">
-                                <!-- card start  -->
-                                <div class="card p-3 rounded-4 border-0 shadow h-100 mx-auto">
-                                    <div class="card-body">
-                                        <div class="d-flex">
-                                            <h3 class="card-title text-primary"><i
-                                                    class="ri-award-fill align-bottom fs-2 me-3"></i>Essentiel</h3>
-                                            <div class="title-sm ms-auto">
-                                                <p class="text-warning bg-warning-subtle p-1 rounded-2">Populaire</p>
-                                            </div>
-                                        </div>
-                                        <p>Basic amélioré</p>
-                                        <h1 class="display-3"><span class="text-info">$</span>16<span
-                                                class="fs-6 text-secondary">par
-                                                mois</span></h1>
-
-                                        <div class="card-title-1 mt-4">
-                                            <h6 class="text-primary">Basic + plus:</h6>
-                                            <div class="list mt-4">
-                                                <ul class="list-unstyled">
-                                                    <li><i
-                                                            class="ri-checkbox-circle-line align-middle text-primary fs-4 me-3"></i>Consultation spécialiste
-                                                    </li>
-                                                    <li><i
-                                                            class="ri-checkbox-circle-line align-middle text-primary fs-4 me-3"></i>Laboratoire
-                                                    </li>
-                                                    <li><i
-                                                            class="ri-checkbox-circle-line align-middle text-primary fs-4 me-3"></i>Prescription médicale
-                                                    </li>
-                                                    <li><i
-                                                            class="ri-checkbox-circle-line align-middle text-primary fs-4 me-3"></i>Hopsitalisation
-                                                
-                                                    </li>
-                                                </ul>
-                                                <div class=" text-center my-4">
-                                                    <a href="#" class="text-primary">Voir toutes les fonctionnalités</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-footer link-part text-center border-0">
-                                        <a href="#" class="btn btn-primary text-light border-0 shadow-none">Rejoindre maintenant</a>
-                                    </div>
-                                </div>
-                                <!-- card end  -->
-                            </div>
-                            <div class="col-lg-3 col-md-6">
-                                <!-- card start  -->
-                                <div class="card p-3 rounded-4 border-0 shadow h-100 mx-auto">
-                                    <div class="card-body">
-                                        <div class="d-flex">
-                                            <h3 class="card-title text-primary"><i
-                                                    class="ri-award-fill align-bottom fs-2 me-3"></i>Confort</h3>
-                                            
-                                        </div>
-                                        <p>Adapté pour famille</p>
-                                        <h1 class="display-3"><span class="text-info">$</span>26<span
-                                                class="fs-6 text-secondary">par
-                                                mois</span></h1>
-
-                                        <div class="card-title-1 mt-4">
-                                            <h6 class="text-primary">Essentiel +  :</h6>
-                                            <div class="list mt-4">
-                                                <ul class="list-unstyled">
-                                                    <li><i
-                                                            class="ri-checkbox-circle-line align-middle text-primary fs-4 me-3"></i>tous les soins précédents
-                                                    </li>
-                                                    <li><i
-                                                            class="ri-checkbox-circle-line align-middle text-primary fs-4 me-3"></i>Accouchement
-                                                    </li>
-                                                    <li><i
-                                                            class="ri-checkbox-circle-line align-middle text-primary fs-4 me-3"></i>Hospitalisation
-                                                    </li>
-                                                    <li><i
-                                                            class="ri-checkbox-circle-line align-middle text-primary fs-4 me-3"></i>Imagerie
-                                                
-                                                    </li>
-                                                </ul>
-                                                <div class=" text-center my-4">
-                                                    <a href="#" class="text-primary">Voir toutes les fonctionnalités</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-footer link-part text-center border-0">
-                                        <a href="#" class="btn btn-primary text-light border-0 shadow-none">Rejoindre maintenant</a>
-                                    </div>
-                                </div>
-                                <!-- card end  -->
-                            </div>
-                            <div class="col-lg-3 col-md-6">
-                                <!-- card start  -->
-                                <div class="card p-3 rounded-4 border-0 shadow h-100 bg-primary mx-auto">
-                                    <div class="card-body">
-                                        <h3 class="card-title text-info"><i
-                                                class="ri-flashlight-fill align-bottom fs-2 me-3"></i> Prestige</h3>
-                                        <p class="text-light">Soin total</p>
-                                        <h1 class="display-3 text-light"><span class="text-info">$</span>50<span
-                                                class="fs-6 text-secondary">
-                                                par mois</span></h1>
-
-                                        <div class="card-title-1 mt-4">
-                                            <h6 class="text-info">Confort + Plus:</h6>
-                                            <div class="list mt-4">
-                                                <ul class="list-unstyled">
-                                                    <li class="m-0 text-light"><i
-                                                            class="ri-checkbox-circle-line align-middle text-info fs-4 me-3"></i>Tous les soins précédents
-                                                    </li>
-                                                    <li class="text-light"><i
-                                                            class="ri-checkbox-circle-line align-middle text-info fs-4 me-3"></i>Consultation illimitée
-                                                    </li>
-                                                    <li class="text-light"><i
-                                                            class="ri-checkbox-circle-line align-middle text-info fs-4 me-3"></i>Suivi maladies chroniques 
-                                                    </li>
-                                                    <li class="text-light"><i
-                                                            class="ri-checkbox-circle-line align-middle text-info fs-4 me-3"></i>Optique et Dentaire
-                                                    </li>
-                                                    <li class="text-light"><i
-                                                            class="ri-checkbox-circle-line align-middle text-info fs-4 me-3"></i>Prélevement à domicile
-                                                    </li>µ
-                                                    <li class="text-light"><i
-                                                            class="ri-checkbox-circle-line align-middle text-info fs-4 me-3"></i>Livraison médicament
-                                                    </li>
-                                                    <li class="text-light"><i
-                                                            class="ri-checkbox-circle-line align-middle text-info fs-4 me-3"></i>Gadgets de santé
-                                                    </li>
-                                                </ul>
-                                                <div class="text-center my-4">
-                                                    <a href="#" class="text-info">Voir toutes les fonctionnalités</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-footer link-part text-center  border-0 ">
-                                        <a href="#" class="btn bg-primary-subtle text-primary border-0 shadow-none">Rejoindre maintenant</a>
-                                    </div>
-                                </div>
-                                <!-- card end  -->
-                            </div>
-                            
-                        </div>
-                        <!-- row end  -->
-                    </div>
-                </div>
-            </section>
-            <!-- price part end  -->
-
-            <!-- counter-part start  -->
-            <section class="section counter-part">
-                <div class="container">
-                    <div class="text-part text-center pb-2">
-                        <div class="title-part text-primary">
-                            <h4>Ce que vous gagnez !</h4>
-                        </div>
-                    </div>
-                    <!-- row start  -->
-                    <div class="row align-items-center">
-                        <div class="col-lg-4">
-                            <div class="card-one mt-4 p-4 text-start">
-                                <div class="icon mb-5">
-                                    <i class="ri-group-line fs-3 p-3 bg-primary-subtle rounded-circle text-primary"></i>
-                                </div>
-                                <div class="title mt-2">
-                                    <h5>Consultation à distance</h5>
-                                </div>
-                                <div class="content">
-                                    <p>Évitez les longues attentes dans les hôpitaux.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="card-one mt-4 p-4 text-start">
-                                <div class="icon mb-5">
-                                    <i class="ri-group-line fs-3 p-3 bg-primary-subtle rounded-circle text-primary"></i>
-                                </div>
-                                <div class="title mt-2">
-                                    <h5>Prix abordables</h5>
-                                </div>
-                                <div class="content">
-                                    <p>Des tarifs adaptés à votre budget.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="card-one mt-4 p-4 text-start">
-                                <div class="icon mb-5">
-                                    <i class="ri-group-line fs-3 p-3 bg-primary-subtle rounded-circle text-primary"></i>
-                                </div>
-                                <div class="title mt-2">
-                                    <h5>Médecins de confiance</h5>
-                                </div>
-                                <div class="content">
-                                    <p>Des professionnels certifiés, disponibles pour vous.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="card-one mt-4 p-4 text-start">
-                                <div class="icon mb-5">
-                                    <i class="ri-group-line fs-3 p-3 bg-primary-subtle rounded-circle text-primary"></i>
-                                </div>
-                                <div class="title mt-2">
-                                    <h5>Assurance intégrée</h5>
-                                </div>
-                                <div class="content">
-                                    <p>Plus de stress pour les remboursements !</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="card-one mt-4 p-4 text-start">
-                                <div class="icon mb-5">
-                                    <i class="ri-group-line fs-3 p-3 bg-primary-subtle rounded-circle text-primary"></i>
-                                </div>
-                                <div class="title mt-2">
-                                    <h5>Paiement en ligne</h5>
-                                </div>
-                                <div class="content">
-                                    <p>Pas besoin de vous déplacer pour les paiements, ils sont fait par mobile money</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="card-one mt-4 p-4 text-start">
-                                <div class="icon mb-5">
-                                    <i class="ri-group-line fs-3 p-3 bg-primary-subtle rounded-circle text-primary"></i>
-                                </div>
-                                <div class="title mt-2">
-                                    <h5>Médecins de confiance</h5>
-                                </div>
-                                <div class="content">
-                                    <p>Understand what matter to our employee Give them what need to do their best work.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row end  -->
-                </div>
-            </section>
-            <!-- counter-part end  -->
-
-            <!-- review-client start  -->
-            <section class="client-review section" id="testimonials">
-                <div class="bg-overlay"></div>
-                <div class="container">
-                    <div class="text-part position-relative text-center pb-5">
-
-                        <div class="title-sm mb-4">
-                            <span class="px-3 py-1 rounded-pill bg-warning-subtle">Our Reviews</span>
-                        </div>
-                        <div class="title-part text-primary">
-                            <h4>What our customer say</h4>
-                            <p>It is a long established fact that a reader will be
-                                distracted of a page when. </p>
-                        </div>
-                    </div>
-                    <!-- carousel start  -->
-                    <div id="carouselExampleSlidesOnly" class="carousel slide text-center carousel-dark" data-bs-ride="carousel"
-                        data-bs-touch="true">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="shadow-1-strong mb-4" src="images/client/client.jpg" alt="avatar">
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-lg-8">
-                                        <div class="review-star">
-                                            <p> <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                            </p>
-                                        </div>
-                                        <p class="text-primary">"Our task must be to free ourselves by widening our circle of
-                                            <br> compassion to
-                                            embrace all living
-                                            creatures."
-                                        </p>
-                                        <h6 class="text-warning">Jhon Begerson</h6>
-                                        <small class="text-secondary">Customer</small>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img class="mb-4" src="images/client/client-2.jpg" alt="avatar">
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-lg-8">
-                                        <div class="review-star">
-                                            <p> <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                            </p>
-                                        </div>
-
-                                        <p class="text-primary">"I feel confident imposing change on myself. It's a lot more fun
-                                            <br> than
-                                            looking back
-                                            That's why scelerisque."
-                                        </p>
-                                        <h6 class="text-warning">Tihar laster</h6>
-                                        <small class="text-secondary">Customer</small>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img class="mb-4" src="images/client/client-3.jpg" alt="avatar">
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-lg-8">
-                                        <div class="review-star">
-                                            <p> <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                            </p>
-                                        </div>
-
-                                        <p class="text-primary">"I've learned that people will forget what you said, people will
-                                            <br> forget
-                                            what you did, but people
-                                            will
-                                            never aliquam."
-                                        </p>
-                                        <h6 class="text-warning">Mahia Wick</h6>
-                                        <small class="text-secondary">Customer</small>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img class="mb-4" src="images/client/client-4.jpg" alt="avatar">
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-lg-8">
-                                        <div class="review-star">
-                                            <p> <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                            </p>
-                                        </div>
-
-                                        <p class="text-primary">"What you did, but people will never aliquam in nunc quis <br>
-                                            tincidunt forget
-                                            how you vestibulum
-                                            egestas
-                                            them."</p>
-                                        <h6 class="text-warning">Jhon Nest</h6>
-                                        <small class="text-secondary">Customer</small>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img class="mb-4" src="images/client/client-5.jpg" alt="avatar">
-                                <div class="row d-flex justify-content-center">
-                                    <div class="col-lg-8">
-                                        <div class="review-star">
-                                            <p> <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                                <i class="ri-star-fill align-middle text-warning"></i>
-                                            </p>
-                                        </div>
-
-                                        <p class="text-primary">"That's why scelerisque pretium dolor, sit amet vehicula erat
-                                            <br> pelleque need
-                                            throw curve balls
-                                            lacus".
-                                        </p>
-                                        <h6 class="text-warning">Jenifer Lorns</h6>
-                                        <small class="text-secondary">Customer</small>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly"
-                            data-bs-slide="prev">
-                            <span class="" aria-hidden="true"><i
-                                    class="ri-arrow-left-s-line text-primary fs-2 bg-primary-subtle p-1 rounded-circle"></i></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnly"
-                            data-bs-slide="next">
-                            <span class="" aria-hidden="true"><i
-                                    class="ri-arrow-right-s-line text-primary fs-2 bg-primary-subtle p-1 rounded-circle"></i></span>
-                        </button>
-                    </div>
-                </div>
-            </section>
-            <!-- review-client end  -->
-
-            <!-- question-part start  -->
-            <section class="section question-part">
-                <div class="container">
-                    <div class="text-part text-center pb-2">
-
-                        <div class="title-sm mb-4">
-                            <span class="px-3 py-1 rounded-pill bg-warning-subtle">Besoin d'aide</span>
-                        </div>
-                        <div class="title-part text-primary">
-                            <h4>Frequently asked Questions</h4>
-                            <p>The website's good percentage of the users will purchase your goods and services.</p>
-                        </div>
-                    </div>
-                    <div class="accordion mt-5" id="accordionExample1">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <!-- ...........accordion part one............... -->
-                                <div class="accordion-item  border-bottom rounded-0">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button collapsed pt-4" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                            How Benefit That I Got When Choose Basic Plan
-                                        </button>
-                                    </h2>
-                                    <!-- accordion collapse -->
-                                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                                        data-bs-parent="#accordionExample1">
-                                        <div class="accordion-body">
-                                            <span>Contrary to this, individuals above this tax bracket of 30% can benefit from
-                                                low basic pay. This
-                                                is because the superannuation or retirement benefits have to be approximately
-                                                27% of the basic pay.
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- ...........accordion part two............... -->
-
-                                <div class="accordion-item border-bottom ">
-                                    <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button pt-4" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                                            How Do I Organize My Notes?
-                                        </button>
-                                    </h2>
-                                    <!-- accordion collapse -->
-
-                                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
-                                        data-bs-parent="#accordionExample1">
-                                        <div class="accordion-body">
-                                            <span>Try using coloured paper so that all related notes are made on sheets of the
-                                                same colour. Some
-                                                notebooks have sections in different colours and have the advantage of keeping
-                                                all your notes in one
-                                                place.
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- ...........accordion part three............... -->
-                                <div class="accordion-item border-bottom">
-                                    <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button collapsed pt-4" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            How Long For A Standard Project
-                                        </button>
-                                    </h2>
-                                    <!-- accordion collapse -->
-
-                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                                        data-bs-parent="#accordionExample1">
-                                        <div class="accordion-body">
-
-                                            <span>Typically, an average project will take in the region of three four months.
-                                                Some of our projects
-                                                are small, fully specified and are completed in four six weeks. Others can take
-                                                six months or much
-                                                longer.
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- ...........accordion part four............... -->
-
-                                <div class="accordion-item  rounded-0">
-                                    <h2 class="accordion-header" id="headingFour">
-                                        <button class="accordion-button collapsed pt-4" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                            How About Data Security & NDA Agreement
-                                        </button>
-                                    </h2>
-                                    <!-- accordion collapse -->
-
-                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                                        data-bs-parent="#accordionExample1">
-                                        <div class="accordion-body">
-                                            <span>The lifeblood of your business is the data you generate, transform, store, and
-                                                move. Take a
-                                                silicon-to-cloud approach to securing your data infrastructure spanning clouds,
-                                                data centers, and
-                                                edges while also helping to protect against ransomware attacks.
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <!-- ...........accordion part one............... -->
-                                <!-- ...........accordion part col second accordion five............... -->
-
-                                <div class="accordion-item  border-bottom rounded-0">
-                                    <h2 class="accordion-header" id="headingFive">
-                                        <button class="accordion-button collapsed pt-4" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                            How Does Notero Store My Data?
-                                        </button>
-
-                                    </h2>
-                                    <!-- accordion collapse -->
-                                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
-                                        data-bs-parent="#accordionExample1">
-                                        <div class="accordion-body">
-                                            <span>Want to access Notes data on your Mac? Wondering where Notes are stored on the
-                                                Mac? This article
-                                                will show you where Notes are stored locally on a Mac and how to access that
-                                                data.
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- ...........accordion part six............... -->
-
-                                <div class="accordion-item  border-bottom rounded-0">
-                                    <h2 class="accordion-header" id="headingSix">
-                                        <button class="accordion-button collapsed pt-4" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                            Does Notero Support Storing Data on iCloud?
-                                        </button>
-                                    </h2>
-                                    <!-- accordion collapse -->
-                                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
-                                        data-bs-parent="#accordionExample1">
-                                        <div class="accordion-body">
-                                            <span> Zotero can keep track of your library's data across multiple computers.
-                                                Zotero is able to sync
-                                                your library across multiple computers because Zotero can store your data on
-                                                their servers.
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- ...........accordion part seven............... -->
-
-                                <div class="accordion-item  border-bottom rounded-0">
-                                    <h2 class="accordion-header" id="headingSeven">
-                                        <button class="accordion-button collapsed pt-4" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                            How Do I Change My Email or Password?
-                                        </button>
-                                    </h2>
-                                    <!-- accordion collapse -->
-                                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
-                                        data-bs-parent="#accordionExample1">
-                                        <div class="accordion-body">
-
-                                            <span>You can change your Webmail password in the one.com control panel under Email
-                                                if you have
-                                                forgotten it. Here you can manage all email accounts on your domain.
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- ...........accordion part eight............... -->
-
-                                <div class="accordion-item  border-bottom rounded-0">
-                                    <h2 class="accordion-header" id="headingEignt">
-                                        <button class="accordion-button collapsed pt-4" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseEignt" aria-expanded="false" aria-controls="collapseEignt">
-                                            Can My Premium License Be Used For All Devices?
-                                        </button>
-                                    </h2>
-                                    <!-- accordion collapse -->
-                                    <div id="collapseEignt" class="accordion-collapse collapse" aria-labelledby="headingEignt"
-                                        data-bs-parent="#accordionExample1">
-                                        <div class="accordion-body">
-
-                                            <span>The Remote Access License is an endpoint-based license designated for a single
-                                                user. It allows
-                                                to the user remotely connect to a maximum of 3 devices from an unlimited number
-                                                of devices.
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- ...........accordion part nine............... -->
-
-                                <div class="accordion-item  rounded-0">
-                                    <h2 class="accordion-header" id="headingNine">
-                                        <button class="accordion-button collapsed pt-4" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
-                                            Can I Lock My Note App?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine"
-                                        data-bs-parent="#accordionExample1">
-                                        <div class="accordion-body">
-
-                                            <span>Through the collaboration with customers in discussing needs and demand,
-                                                we're able to attain
-                                                mutual understanding, gain customer trust to offer appropriate advice.
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </section>
-            <!-- question-part end  -->
-
-    <!-- cat-part start  -->
-    <section class="section cta-part bg-white">
-        <div class="container">
-            <!-- row start  -->
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="cta-title text-center">
-                        <div class="text-part mb-5">
-                            <div class="title-part text-primary text-center">
-                                <h4>Commencer maintenant !</h4>
-                                <p>Rejoignez des milliers de patients qui se soignent autrement.</p>
-                            </div>
-                        </div>
-                        <a href="#" class="btn btn-light rounded-2 text-primary">
-                            <i class="ri-whatsapp-line align-middle me-2 pe-2 border-end"></i>Whatsapp
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- row end  -->
-        </div>
-    </section>
-    <!-- cat-part end  -->
-
-    <!-- footer-part start -->
-    <footer class="footer-part section pb-5" id="contacts">
-        <div class="container">
-            <div class="footer-info">
-                <!-- row start -->
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-12">
-                        <div class="logo">
-                            <a class="fs-4 text-light fw-bold ls-1" href="#"><i
-                                    class="ri-blaze-fill align-top text-warning fs-3"></i>TECHBAR
-                            </a>
-                        </div>
-
-                        <p class="mt-4 text-white-50">We are improving our social presence, please like us or follow us
-                            to know all the news about products, releases and services.
+                    <div class="hero-content animate-fade-in-up">
+                        <h1 class="hero-title">
+                            Soins de santé <span class="text-gradient">accessibles</span> pour tous
+                        </h1>
+                        <p class="hero-subtitle">
+                            Lobiko Health révolutionne l'accès aux soins de santé en République Démocratique du Congo. 
+                            Consultez des médecins qualifiés, obtenez vos médicaments et gérez votre santé depuis chez vous.
                         </p>
-
-                        <div class="footer-icon mb-4 mt-4">
-                            <h5 class="text-light fs-5 mb-4">Followed by</h5>
-
-                            <a href="#" class="icon-link icon-link-hover text-white-50"><i
-                                    class="ri-facebook-fill me-2 bi"></i>
+                        <div class="hero-buttons">
+                            <a href="#" class="btn-whatsapp">
+                                <i class="ri-whatsapp-line"></i>
+                                Consultation WhatsApp
                             </a>
-                            <a href="#" class="icon-link icon-link-hover text-white-50"><i
-                                    class="ri-instagram-line mx-2 bi"></i>
-                            </a>
-                            <a href="#" class="icon-link icon-link-hover text-white-50"><i
-                                    class="ri-linkedin-box-fill mx-2 bi"></i>
-                            </a>
-                            <a href="#" class="icon-link icon-link-hover text-white-50"><i
-                                    class="ri-twitter-fill mx-2 bi"></i>
-                            </a>
-                            <a href="#" class="icon-link icon-link-hover text-white-50"><i
-                                    class="ri-mail-line mx-2 bi"></i>
-                            </a>
-                            <a href="#" class="icon-link icon-link-hover text-white-50"><i
-                                    class="ri-google-fill mx-2 bi"></i>
-                            </a>
-                            <a href="#" class="icon-link icon-link-hover text-white-50"><i
-                                    class="ri-slack-fill mx-2 bi"></i>
+                            <a href="#services" class="btn-secondary-custom">
+                                Découvrir nos services
                             </a>
                         </div>
-                    </div>
-
-                    <div class="col-lg-2 col-md-4 col-12 pt-2">
-                        <h5 class="text-light fs-5">Company</h5>
-                        <ul class="list-unstyled mt-4">
-                            <li><a href="#" class="text-white-50"><i
-                                        class="ri-arrow-drop-right-line me-1 text-warning"></i>About
-                                    Us</a></li>
-                            <li><a href="#" class="text-white-50"><i
-                                        class="ri-arrow-drop-right-line me-1 text-warning"></i>Brand</a>
-                            </li>
-                            <li><a href="#" class="text-white-50"><i
-                                        class="ri-arrow-drop-right-line me-1 text-warning"></i>Team</a>
-                            </li>
-                            <li><a href="#" class="text-white-50"><i
-                                        class="ri-arrow-drop-right-line me-1 text-warning"></i>Pricing</a></li>
-                            <li><a href="#" class="text-white-50"><i
-                                        class="ri-arrow-drop-right-line me-1 text-warning"></i>Project</a></li>
-                            <li><a href="#" class="text-white-50"><i
-                                        class="ri-arrow-drop-right-line me-1 text-warning"></i>Blog</a>
-                            </li>
-                            <li><a href="#" class="text-white-50"><i
-                                        class="ri-arrow-drop-right-line me-1 text-warning"></i>Careers</a></li>
-                            <li><a href="#" class="text-white-50"><i
-                                        class="ri-arrow-drop-right-line me-1 text-warning"></i>Login</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-2 col-md-4 col-12 pt-2">
-                        <h5 class="text-light fs-5">Usefull Links</h5>
-                        <ul class="list-unstyled mt-4">
-                            <li><a href="#" class="text-white-50"><i
-                                        class="ri-arrow-drop-right-line me-1 text-warning"></i>Terms of
-                                    Services</a></li>
-                            <li><a href="#" class="text-white-50"><i
-                                        class="ri-arrow-drop-right-line me-1 text-warning"></i>Privacy
-                                    Policy</a></li>
-                            <li><a href="#" class="text-white-50"><i
-                                        class="ri-arrow-drop-right-line me-1 text-warning text-warning"></i>Documentation</a>
-                            </li>
-                            <li><a href="#" class="text-white-50"><i
-                                        class="ri-arrow-drop-right-line me-1 text-warning"></i>
-                                    Changelog</a></li>
-                            <li><a href="#" class="text-white-50"><i
-                                        class="ri-arrow-drop-right-line me-1 text-warning"></i>Components
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-12 pt-2">
-                        <h5 class="text-light fs-5">Start project with TechBar</h5>
-                        <div class="footer-btn mt-4 mb-4">
-                            <a href="#" class="btn btn-light">Sign Up !</a>
-                            <a href="#" class="btn bg-warning-subtle">Subscribe</a>
-                        </div>
-                        <div class="d-flex">
-                            <i class="ri-twitter-fill fs-5 me-3 text-warning"></i>
-                            <p class="text-white-50">Pleasures have to repudiated annoyances accepted therefore always
-                                holds chooses
-                                enjoy a pleasure
-                                consequences.</p>
-                        </div>
-                        <div class="d-flex mt-2">
-                            <i class="ri-twitter-fill fs-5 me-3 text-warning"></i>
-                            <p class="text-white-50">Greater pleasures el esndures pains avoid welcomed avoided pariatu.
-                            </p>
-                        </div>
-                        <p class="text-white-50">Are you developer ? <a href="#" class="text-light">Learn More !</a></p>
                     </div>
                 </div>
-                <!-- row end -->
+                <div class="col-lg-6">
+                    <div class="text-center">
+                        <img src="images/emedecine.png" alt="Télémédecine Lobiko Health" class="img-fluid">
+                    </div>
+                </div>
             </div>
         </div>
-        <img src="images/footer.png" alt="" class="img-fluid img-top position-absolute top-0 w-100">
-    </footer>
-    <!-- footer-part end -->
-    <div class="footer-copyright py-3">
-        <div class="copy-info text-center text-white-50">
-            © 2023 Techbar - <a href="#" class="text-white-50 text-decoration-underline">
-                Themesdesign</a>
-        </div>
-    </div>
+    </section>
 
+    <!-- Trust Indicators -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="trust-item">
+                        <span class="trust-number">5000+</span>
+                        <div class="trust-label">Patients satisfaits</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="trust-item">
+                        <span class="trust-number">150+</span>
+                        <div class="trust-label">Médecins certifiés</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="trust-item">
+                        <span class="trust-number">24/7</span>
+                        <div class="trust-label">Support disponible</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="trust-item">
+                        <span class="trust-number">98%</span>
+                        <div class="trust-label">Taux de satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section bg-light-custom" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="images/3.jpg" alt="À propos de Lobiko Health" class="img-fluid rounded-4">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title text-start">Qui sommes-nous ?</h2>
+                    <p class="section-subtitle text-start">
+                        <strong>Lobiko Health</strong> est une plateforme de santé numérique innovante qui démocratise 
+                        l'accès aux soins médicaux de qualité en République Démocratique du Congo.
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex align-items-start">
+                                <i class="ri-shield-check-line text-primary fs-3 me-3 mt-1"></i>
+                                <div>
+                                    <h5>Médecins certifiés</h5>
+                                    <p class="text-muted">Tous nos praticiens sont diplômés et agréés par l'Ordre des Médecins.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex align-items-start">
+                                <i class="ri-time-line text-primary fs-3 me-3 mt-1"></i>
+                                <div>
+                                    <h5>Disponibilité 24/7</h5>
+                                    <p class="text-muted">Accès aux soins d'urgence et consultations à tout moment.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex align-items-start">
+                                <i class="ri-smartphone-line text-primary fs-3 me-3 mt-1"></i>
+                                <div>
+                                    <h5>Technologie simple</h5>
+                                    <p class="text-muted">Interface WhatsApp familière, accessible à tous.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex align-items-start">
+                                <i class="ri-money-dollar-circle-line text-primary fs-3 me-3 mt-1"></i>
+                                <div>
+                                    <h5>Tarifs transparents</h5>
+                                    <p class="text-muted">Prix fixes et abordables, sans frais cachés.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <h2 class="section-title">Nos Services</h2>
+            <p class="section-subtitle">
+                Une gamme complète de services de santé numérique pour répondre à tous vos besoins médicaux.
+            </p>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="ri-video-chat-line"></i>
+                        </div>
+                        <h3 class="feature-title">Téléconsultation</h3>
+                        <p class="feature-description">
+                            Consultez nos médecins spécialisés via WhatsApp. Diagnostic, prescription et suivi médical à distance.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="ri-medicine-bottle-line"></i>
+                        </div>
+                        <h3 class="feature-title">Pharmacie en ligne</h3>
+                        <p class="feature-description">
+                            Commandez vos médicaments en ligne et recevez-les directement à domicile avec notre service de livraison.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="ri-shield-heart-line"></i>
+                        </div>
+                        <h3 class="feature-title">Assurance santé</h3>
+                        <p class="feature-description">
+                            Souscrivez à notre assurance santé digitale pour une couverture médicale complète et abordable.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="ri-test-tube-line"></i>
+                        </div>
+                        <h3 class="feature-title">Analyses médicales</h3>
+                        <p class="feature-description">
+                            Prélèvements à domicile et analyses en laboratoire avec résultats transmis rapidement.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="ri-heart-pulse-line"></i>
+                        </div>
+                        <h3 class="feature-title">Suivi chronique</h3>
+                        <p class="feature-description">
+                            Gestion et suivi personnalisé des maladies chroniques (diabète, hypertension, etc.).
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="ri-emergency-line"></i>
+                        </div>
+                        <h3 class="feature-title">Urgences médicales</h3>
+                        <p class="feature-description">
+                            Service d'urgence 24/7 avec orientation vers les structures de soins appropriées.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section bg-light-custom">
+        <div class="container">
+            <h2 class="section-title">Comment ça marche ?</h2>
+            <p class="section-subtitle">
+                Accédez aux soins de santé en 3 étapes simples via WhatsApp.
+            </p>
+            <div class="row">
+                <div class="col-lg-4 text-center mb-4">
+                    <div class="feature-icon mx-auto mb-3">
+                        <i class="ri-chat-3-line"></i>
+                    </div>
+                    <h4>1. Contactez-nous</h4>
+                    <p class="text-muted">Cliquez sur le bouton WhatsApp et décrivez votre problème de santé.</p>
+                </div>
+                <div class="col-lg-4 text-center mb-4">
+                    <div class="feature-icon mx-auto mb-3">
+                        <i class="ri-user-heart-line"></i>
+                    </div>
+                    <h4>2. Consultez un médecin</h4>
+                    <p class="text-muted">Un médecin qualifié vous répond et effectue votre consultation.</p>
+                </div>
+                <div class="col-lg-4 text-center mb-4">
+                    <div class="feature-icon mx-auto mb-3">
+                        <i class="ri-truck-line"></i>
+                    </div>
+                    <h4>3. Recevez vos soins</h4>
+                    <p class="text-muted">Prescription, médicaments et suivi livrés directement chez vous.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Nos Forfaits</h2>
+            <p class="section-subtitle">
+                Choisissez le forfait qui correspond le mieux à vos besoins de santé et à votre budget.
+            </p>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="pricing-card">
+                        <h3 class="text-center mb-3">Essentiel</h3>
+                        <div class="text-center">
+                            <div class="pricing-price">15$</div>
+                            <div class="pricing-period">par mois</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="ri-check-line"></i> 3 consultations médicales</li>
+                            <li><i class="ri-check-line"></i> Prescription électronique</li>
+                            <li><i class="ri-check-line"></i> Support WhatsApp</li>
+                            <li><i class="ri-check-line"></i> Dossier médical numérique</li>
+                        </ul>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-primary-custom w-100">Choisir ce forfait</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="pricing-card featured">
+                        <h3 class="text-center mb-3">Confort</h3>
+                        <div class="text-center">
+                            <div class="pricing-price">25$</div>
+                            <div class="pricing-period">par mois</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="ri-check-line"></i> Consultations illimitées</li>
+                            <li><i class="ri-check-line"></i> Livraison médicaments</li>
+                            <li><i class="ri-check-line"></i> Analyses de base</li>
+                            <li><i class="ri-check-line"></i> Consultation spécialiste</li>
+                            <li><i class="ri-check-line"></i> Support prioritaire 24/7</li>
+                        </ul>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-primary-custom w-100">Choisir ce forfait</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="pricing-card">
+                        <h3 class="text-center mb-3">Premium</h3>
+                        <div class="text-center">
+                            <div class="pricing-price">45$</div>
+                            <div class="pricing-period">par mois</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="ri-check-line"></i> Tous les services Confort</li>
+                            <li><i class="ri-check-line"></i> Hospitalisation couverte</li>
+                            <li><i class="ri-check-line"></i> Imagerie médicale</li>
+                            <li><i class="ri-check-line"></i> Soins dentaires</li>
+                            <li><i class="ri-check-line"></i> Optique</li>
+                            <li><i class="ri-check-line"></i> Médecin de famille dédié</li>
+                        </ul>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-primary-custom w-100">Choisir ce forfait</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section bg-light-custom" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Témoignages de nos patients</h2>
+            <p class="section-subtitle">
+                Découvrez ce que nos patients disent de leur expérience avec Lobiko Health.
+            </p>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <img src="images/femme.png" alt="Marie Kabila" class="testimonial-avatar">
+                        <div class="stars">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Grâce à Lobiko Health, j'ai pu consulter un médecin rapidement pour mon enfant malade. 
+                            Le service est excellent et très pratique."
+                        </p>
+                        <div class="testimonial-author">Marie Kabila</div>
+                        <div class="testimonial-role">Mère de famille, Kinshasa</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <img src="images/homme.png" alt="Jean Mukendi" class="testimonial-avatar">
+                        <div class="stars">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Le suivi de mon diabète n'a jamais été aussi simple. Les médecins sont compétents 
+                            et toujours disponibles pour répondre à mes questions."
+                        </p>
+                        <div class="testimonial-author">Jean Mukendi</div>
+                        <div class="testimonial-role">Patient diabétique, Lubumbashi</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <img src="images/jeune.png" alt="Grace Mbuyi" class="testimonial-avatar">
+                        <div class="stars">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "La livraison de médicaments à domicile m'a sauvé beaucoup de temps. 
+                            Service professionnel et fiable."
+                        </p>
+                        <div class="testimonial-author">Grace Mbuyi</div>
+                        <div class="testimonial-role">Enseignante, Goma</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" id="faq">
+        <div class="container">
+            <h2 class="section-title">Questions fréquentes</h2>
+            <p class="section-subtitle">
+                Trouvez rapidement les réponses aux questions les plus courantes sur nos services.
+            </p>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="faq-item">
+                            <div class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                Comment puis-je consulter un médecin via WhatsApp ?
+                                <i class="ri-arrow-down-s-line ms-auto"></i>
+                            </div>
+                            <div id="faq1" class="collapse show" data-bs-parent="#faqAccordion">
+                                <div class="faq-answer">
+                                    Il suffit de cliquer sur le bouton WhatsApp sur notre site, de décrire votre problème de santé, 
+                                    et un médecin qualifié vous répondra dans les plus brefs délais pour effectuer votre consultation.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                Vos médecins sont-ils vraiment qualifiés ?
+                                <i class="ri-arrow-down-s-line ms-auto"></i>
+                            </div>
+                            <div id="faq2" class="collapse" data-bs-parent="#faqAccordion">
+                                <div class="faq-answer">
+                                    Oui, tous nos médecins sont diplômés d'universités reconnues et agréés par l'Ordre des Médecins 
+                                    de la RDC. Ils ont également suivi une formation spécialisée en télémédecine.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                Comment fonctionne la livraison de médicaments ?
+                                <i class="ri-arrow-down-s-line ms-auto"></i>
+                            </div>
+                            <div id="faq3" class="collapse" data-bs-parent="#faqAccordion">
+                                <div class="faq-answer">
+                                    Après votre consultation, si le médecin prescrit des médicaments, vous pouvez les commander 
+                                    directement via WhatsApp. Nous les livrons à votre domicile dans les 24h à Kinshasa et 48h dans les autres villes.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                Quels sont les moyens de paiement acceptés ?
+                                <i class="ri-arrow-down-s-line ms-auto"></i>
+                            </div>
+                            <div id="faq4" class="collapse" data-bs-parent="#faqAccordion">
+                                <div class="faq-answer">
+                                    Nous acceptons tous les moyens de paiement mobile money (M-Pesa, Orange Money, Airtel Money) 
+                                    ainsi que les virements bancaires et les cartes de crédit.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                Puis-je annuler mon abonnement à tout moment ?
+                                <i class="ri-arrow-down-s-line ms-auto"></i>
+                            </div>
+                            <div id="faq5" class="collapse" data-bs-parent="#faqAccordion">
+                                <div class="faq-answer">
+                                    Oui, vous pouvez annuler votre abonnement à tout moment sans frais. 
+                                    L'annulation prend effet à la fin de votre période de facturation en cours.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-section">
+                        <h5>Lobiko Health</h5>
+                        <p class="text-muted">
+                            Votre partenaire de confiance pour des soins de santé accessibles et de qualité. 
+                            Nous révolutionnons l'accès aux services médicaux grâce à la technologie.
+                        </p>
+                        <div class="social-links">
+                            <a href="https://web.facebook.com/profile.php?id=61577894590438" class="social-link">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="ri-linkedin-box-fill"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5>Services</h5>
+                        <a href="#" class="footer-link">Téléconsultation</a>
+                        <a href="#" class="footer-link">Pharmacie en ligne</a>
+                        <a href="#" class="footer-link">Assurance santé</a>
+                        <a href="#" class="footer-link">Analyses médicales</a>
+                        <a href="#" class="footer-link">Urgences</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5>Entreprise</h5>
+                        <a href="#" class="footer-link">À propos</a>
+                        <a href="#" class="footer-link">Notre équipe</a>
+                        <a href="#" class="footer-link">Carrières</a>
+                        <a href="#" class="footer-link">Presse</a>
+                        <a href="#" class="footer-link">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-section">
+                        <h5>Newsletter</h5>
+                        <p class="text-muted">
+                            Restez informé des dernières actualités santé et de nos nouveaux services.
+                        </p>
+                        <div class="d-flex gap-2">
+                            <input type="email" class="form-control" placeholder="Votre email">
+                            <button class="btn btn-primary-custom">S'abonner</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">© 2024 Lobiko Health. Tous droits réservés.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="footer-link me-3">Conditions d'utilisation</a>
+                    <a href="#" class="footer-link">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/app.js"></script>
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            document.getElementById('preloader').style.display = 'none';
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .pricing-card, .testimonial-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 
 </html>
+
