@@ -65,7 +65,16 @@
             overflow: hidden;
         }
 
-     
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            opacity: 0.3;
+        }
+
         .hero-content {
             position: relative;
             z-index: 2;
@@ -1098,4 +1107,3 @@
 </body>
 
 </html>
-
