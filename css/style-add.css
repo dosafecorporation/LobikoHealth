@@ -70,14 +70,14 @@
         .navbar-brand {
             font-weight: 700;
             font-size: 1.5rem;
-            color: var(--primary-color) !important;
+            color:#008555 !important;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
         .navbar-brand i {
-            color: var(--accent-color);
+            
             font-size: 2rem;
         }
 

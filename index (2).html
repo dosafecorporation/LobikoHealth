@@ -22,6 +22,47 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/new-css.css">
+    
+    <!-- Language Selector Styles -->
+    <style>
+        .language-selector {
+            display: flex;
+            align-items: center;
+            margin-right: 1rem;
+        }
+        
+        .language-link {
+            color: #6c757d;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .language-link:hover {
+            color: #007bff;
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+        
+        .language-link.active {
+            color: #007bff;
+            background-color: rgba(0, 123, 255, 0.1);
+            font-weight: 600;
+        }
+        
+        .language-separator {
+            margin: 0 0.5rem;
+            color: #dee2e6;
+        }
+        
+        @media (max-width: 991px) {
+            .language-selector {
+                margin-bottom: 1rem;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbarCollapse">
@@ -46,6 +87,13 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <!-- Language Selector -->
+                    <div class="language-selector me-3">
+                        <a href="index.html" class="language-link active">FR</a>
+                        <span class="language-separator">|</span>
+                        <a href="index_en.html" class="language-link">EN</a>
+                    </div>
+                    
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="#home">Accueil</a>
@@ -67,14 +115,9 @@
                         </li>
                     </ul>
                     <div class="d-flex">
-                        <div class="d-flex">
-                        <div class="language-selector me-3">
-                            <a href="index.html" class="language-link">FR</a>
-                            <span class="language-separator">|</span>
-                            <a href="index_en.html" class="language-link active">EN</a>
-                        </div>
+                        <a href="#" class="btn btn-primary-custom">
+                            <i class="ri-user-line me-2"></i>Connexion
                         </a>
-                    </div>
                     </div>
                 </div>
             </div>
@@ -306,7 +349,7 @@
                             <li><i class="ri-check-line"></i> Dossier médical numérique</li>
                         </ul>
                         <div class="text-center">
-                            <a href="" class="btn btn-primary-custom w-100">Choisir ce forfait</a>
+                            <a href="achat.html" class="btn btn-primary-custom w-100">Choisir ce forfait</a>
                         </div>
                     </div>
                 </div>
@@ -325,7 +368,7 @@
                             <li><i class="ri-check-line"></i> Analyses de base</li>
                         </ul>
                         <div class="text-center">
-                            <a href="" class="btn btn-primary-custom w-100">Choisir ce forfait</a>
+                            <a href="achat.html" class="btn btn-primary-custom w-100">Choisir ce forfait</a>
                         </div>
                     </div>
                 </div>
@@ -345,7 +388,7 @@
                             <li><i class="ri-check-line"></i> Médecin de famille dédié</li>
                         </ul>
                         <div class="text-center">
-                            <a href="" class="btn btn-primary-custom w-100">Choisir ce forfait</a>
+                            <a href="achat.html" class="btn btn-primary-custom w-100">Choisir ce forfait</a>
                         </div>
                     </div>
                 </div>
@@ -359,6 +402,7 @@
             <h2 class="section-title">Témoignages des membres</h2>
             <p class="section-subtitle">
                 Découvrez ce que nos membres déclarent
+            </p>
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <div class="testimonial-card">
@@ -619,3 +663,4 @@
 </body>
 
 </html>
+

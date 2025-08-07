@@ -29,10 +29,32 @@ File Description: Main Css file of the template
 /* 
 // 02.Helper
 */
-@import "https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap";
-.section {
-  padding: 80px 0;
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('fonts/Roboto-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('fonts/Roboto-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('fonts/Roboto-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 @media (max-width: 991px) {
   .section {
     padding: 40px 0px !important;

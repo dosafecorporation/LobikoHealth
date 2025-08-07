@@ -22,7 +22,46 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/new-css.css">
     
-    <!-- Custom Styles -->
+    <!-- Language Selector Styles -->
+    <style>
+        .language-selector {
+            display: flex;
+            align-items: center;
+            margin-right: 1rem;
+        }
+        
+        .language-link {
+            color: #6c757d;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .language-link:hover {
+            color: #007bff;
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+        
+        .language-link.active {
+            color: #007bff;
+            background-color: rgba(0, 123, 255, 0.1);
+            font-weight: 600;
+        }
+        
+        .language-separator {
+            margin: 0 0.5rem;
+            color: #dee2e6;
+        }
+        
+        @media (max-width: 991px) {
+            .language-selector {
+                margin-bottom: 1rem;
+                justify-content: center;
+            }
+        }
+    </style>
     
 </head>
 
@@ -48,6 +87,13 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <!-- Language Selector -->
+                    <div class="language-selector me-3">
+                        <a href="contact.html" class="language-link active">FR</a>
+                        <span class="language-separator">|</span>
+                        <a href="contact_en.html" class="language-link">EN</a>
+                    </div>
+                    
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="index.html">Accueil</a>
