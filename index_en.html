@@ -9,6 +9,9 @@
     <meta name="description" content="Lobiko Health reimagines healthcare access in the Democratic Republic of Congo. Solidarity mutual, WhatsApp teleconsultations, online pharmacy and community micro-insurance.">
     <link rel="icon" type="image/png" href="images/logo-lobiko.png">
 
+    <link rel="preload" as="image" href="images/2.webp" type="image/webp" fetchpriority="high">
+    <link rel="preload" as="image" href="images/2.jpg" fetchpriority="high">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -54,107 +57,65 @@
         </nav>
     </header>
 
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6">
+    <section class="hero hero-bg" id="home">
+        <div class="container hero-inner">
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-lg-7">
                     <div class="hero-badge">
                         <i class="ri-heart-pulse-line"></i>
                         Digital healthcare in the Democratic Republic of Congo
                     </div>
-                    <h1 class="hero-title">
-                        Healthcare <span class="highlight">reimagined</span> for everyone
-                    </h1>
-                    <p class="hero-subtitle">
-                        Lobiko Health improves access to care through a solidarity mutual, WhatsApp telemedicine
-                        and micro-insurance tailored for businesses and communities in DRC.
-                    </p>
-                    <div class="hero-actions">
-                        <a href="contact_en.html" class="btn btn-primary btn-lg">Let's Talk</a>
-                        <a href="https://wa.me/243829037620" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">
+                    <h1 class="hero-title hero-title--single">Health for all</h1>
+                    <div class="hero-typewriter-block">
+                        <p class="hero-typewriter-lead">Lobiko Global Health helps you:</p>
+                        <p class="hero-typewriter" aria-live="polite">
+                            <span class="hero-typewriter-text" id="heroTypewriter"></span><span class="hero-typewriter-cursor" aria-hidden="true"></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="hero-cta-panel reveal">
+                        <a href="contact_en.html" class="hero-cta-btn">Let's Talk</a>
+                        <a href="https://wa.me/243829037620" class="hero-cta-btn hero-cta-btn--whatsapp" target="_blank" rel="noopener">
                             <i class="ri-whatsapp-line"></i> WhatsApp Consultation
                         </a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="hero-image-wrap reveal">
-                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=80"
-                            alt="Healthcare professional using Lobiko telemedicine" loading="lazy">
-                        <div class="hero-image-badge">
-                            <i class="ri-heart-pulse-line"></i>
-                            <div>
-                                <strong>All-in-one health platform</strong>
-                                <span>Consultations, mutual, pharmacy — from your phone</span>
-                            </div>
-                        </div>
+                        <a href="#pricing" class="hero-cta-btn hero-cta-btn--accent">Discover our plans</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section section-alt" style="padding-top:2rem;padding-bottom:2rem;">
-        <div class="container">
-            <div class="visual-gallery reveal">
-                <img src="https://images.unsplash.com/photo-1631217868264-eb2716756c4a?w=600&q=80" alt="Lobiko Health doctor" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1512941937669-90a1da001e4c?w=600&q=80" alt="Mobile teleconsultation" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1587854692152-c104968622bb?w=600&q=80" alt="Pharmacy and medications" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&q=80" alt="Enterprise team" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <section class="stats-section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item reveal">
-                    <div class="stat-number"><span data-count="500" data-suffix="+">0</span></div>
-                    <div class="stat-label">Active members</div>
-                </div>
-                <div class="stat-item reveal">
-                    <div class="stat-number"><span data-count="50" data-suffix="+">0</span></div>
-                    <div class="stat-label">Partner businesses</div>
-                </div>
-                <div class="stat-item reveal">
-                    <div class="stat-number"><span data-count="120" data-suffix="+">0</span></div>
-                    <div class="stat-label">Healthcare providers</div>
-                </div>
-                <div class="stat-item reveal">
-                    <div class="stat-number"><span data-count="15" data-suffix="+">0</span></div>
-                    <div class="stat-label">Cities covered</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="plans">
+    <section class="section section-curves" id="plans">
+        <div class="section-curves-bg" aria-hidden="true"></div>
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Health Plans</span>
                 <h2 class="section-title">Plans tailored to every need</h2>
                 <p class="section-desc">
-                    Whether you're a business, NGO or individual, our plans give your teams and their families
-                    the coverage and support they need.
+                    Whether you're a business, self-employed or a family, our health packs offer
+                    protection adapted to your budget.
                 </p>
             </div>
             <div class="feature-block reveal">
                 <div class="feature-content">
-                    <h3>Solidarity mutual & health credit</h3>
+                    <h3>Health Protection Adapted to Your Means</h3>
                     <p>
-                        Our digital mutual combines affordable coverage and health credit for informal workers,
-                        ensuring accessible care even for unbanked populations.
+                        Whether you're looking for an affordable mutual or comprehensive health insurance, we help you
+                        choose the solution that fits your budget and healthcare needs.
                     </p>
                     <ul class="feature-list">
-                        <li><i class="ri-check-line"></i> Hospitalization and consultation coverage</li>
-                        <li><i class="ri-check-line"></i> Mobile Money payments (M-Pesa, Orange, Airtel)</li>
-                        <li><i class="ri-check-line"></i> Digital medical record management</li>
-                        <li><i class="ri-check-line"></i> Corporate and community plans</li>
+                        <li><i class="ri-check-line"></i> Low-cost solidarity mutual</li>
+                        <li><i class="ri-check-line"></i> Health insurance with extended coverage</li>
+                        <li><i class="ri-check-line"></i> Access to a quality care network</li>
+                        <li><i class="ri-check-line"></i> Simple Mobile Money payment</li>
+                        <li><i class="ri-check-line"></i> Digital management of your coverage and care</li>
                     </ul>
                     <a href="#pricing" class="btn btn-primary">Discover our plans</a>
                 </div>
                 <div class="feature-visual">
-                    <img src="https://images.unsplash.com/photo-1584433144859-1fc3aed64bbb?w=800&q=80" alt="Solidarity health mutual" loading="lazy">
-                    <span class="feature-visual-badge">Mutual</span>
+                    <img src="images/7.jpg" alt="LOBIKO health protection" loading="lazy">
+                    <span class="feature-visual-badge">Mutual &amp; Insurance</span>
                 </div>
             </div>
         </div>
@@ -165,29 +126,30 @@
             <div class="feature-block reverse reveal">
                 <div class="feature-content">
                     <span class="section-label">Telemedicine</span>
-                    <h3>See a doctor via WhatsApp</h3>
-                    <p>
-                        With Lobiko Health, members get immediate access to certified doctors through virtual
-                        consultations. Prescriptions and home or office medication delivery included.
-                    </p>
+                    <h3>A doctor within reach</h3>
+                    <p>Consult a healthcare professional wherever you are.</p>
                     <ul class="feature-list">
-                        <li><i class="ri-check-line"></i> Doctors licensed by the DRC Medical Council</li>
-                        <li><i class="ri-check-line"></i> Familiar, accessible WhatsApp interface</li>
-                        <li><i class="ri-check-line"></i> E-prescriptions and personalized follow-up</li>
+                        <li><i class="ri-check-line"></i> Teleconsultation</li>
+                        <li><i class="ri-check-line"></i> Medical advice</li>
+                        <li><i class="ri-check-line"></i> Prescriptions</li>
+                        <li><i class="ri-check-line"></i> Referral to appropriate facilities</li>
+                        <li><i class="ri-check-line"></i> Medical follow-up</li>
                     </ul>
+                    <p class="feature-tagline">Healthcare has never been this simple.</p>
                     <a href="https://wa.me/243829037620" class="btn btn-whatsapp" target="_blank" rel="noopener">
                         <i class="ri-whatsapp-line"></i> Start a consultation
                     </a>
                 </div>
                 <div class="feature-visual">
-                    <img src="https://images.unsplash.com/photo-1512941937669-90a1da001e4c?w=800&q=80" alt="WhatsApp medical consultation" loading="lazy">
-                    <span class="feature-visual-badge">WhatsApp</span>
+                    <img src="images/1.jpg" alt="Consultation with a healthcare professional" loading="lazy">
+                    <span class="feature-visual-badge">Care</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section">
+    <section class="section section-network">
+        <div class="section-network-bg" aria-hidden="true"></div>
         <div class="container">
             <div class="feature-block reveal">
                 <div class="feature-content">
@@ -205,7 +167,7 @@
                     <a href="#services" class="btn btn-outline">Explore our services</a>
                 </div>
                 <div class="feature-visual">
-                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd02d6ac0?w=800&q=80" alt="Partner clinic network" loading="lazy">
+                    <img src="images/6.jpg" alt="Lobiko provider network" loading="lazy">
                     <span class="feature-visual-badge">Network</span>
                 </div>
             </div>
@@ -221,7 +183,7 @@
             </div>
             <div class="services-grid">
                 <div class="service-card reveal">
-                    <img class="service-card-image" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80" alt="Teleconsultation" loading="lazy">
+                    <img class="service-card-image" src="images/1.jpg" alt="Teleconsultation" loading="lazy">
                     <div class="service-card-body">
                         <div class="service-icon"><i class="ri-video-chat-line"></i></div>
                         <h4>Teleconsultation</h4>
@@ -229,7 +191,7 @@
                     </div>
                 </div>
                 <div class="service-card reveal">
-                    <img class="service-card-image" src="https://images.unsplash.com/photo-1587854692152-c104968622bb?w=600&q=80" alt="Online Pharmacy" loading="lazy">
+                    <img class="service-card-image" src="images/3.jpg" alt="Online Pharmacy" loading="lazy">
                     <div class="service-card-body">
                         <div class="service-icon"><i class="ri-medicine-bottle-line"></i></div>
                         <h4>Online Pharmacy</h4>
@@ -237,15 +199,15 @@
                     </div>
                 </div>
                 <div class="service-card reveal">
-                    <img class="service-card-image" src="https://images.unsplash.com/photo-1584433144859-1fc3aed64bbb?w=600&q=80" alt="Health Mutual" loading="lazy">
+                    <img class="service-card-image" src="images/7.jpg" alt="Health mutual and insurance" loading="lazy">
                     <div class="service-card-body">
                         <div class="service-icon"><i class="ri-shield-cross-line"></i></div>
-                        <h4>Health Mutual</h4>
-                        <p>Affordable coverage with health credit for informal workers and SMEs.</p>
+                        <h4>Health Mutual &amp; Insurance</h4>
+                        <p>Solidarity mutual or comprehensive insurance — protection adapted to your budget.</p>
                     </div>
                 </div>
                 <div class="service-card reveal">
-                    <img class="service-card-image" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80" alt="Medical Tests" loading="lazy">
+                    <img class="service-card-image" src="images/6.jpg" alt="Medical Tests" loading="lazy">
                     <div class="service-card-body">
                         <div class="service-icon"><i class="ri-test-tube-line"></i></div>
                         <h4>Medical Tests</h4>
@@ -253,7 +215,7 @@
                     </div>
                 </div>
                 <div class="service-card reveal">
-                    <img class="service-card-image" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80&sat=-50" alt="Chronic Care" loading="lazy">
+                    <img class="service-card-image" src="images/1.jpg" alt="Chronic Care" loading="lazy">
                     <div class="service-card-body">
                         <div class="service-icon"><i class="ri-heart-pulse-line"></i></div>
                         <h4>Chronic Care</h4>
@@ -261,7 +223,7 @@
                     </div>
                 </div>
                 <div class="service-card reveal">
-                    <img class="service-card-image" src="https://images.unsplash.com/photo-1519494026892-80bbd02d6ac0?w=600&q=80" alt="Medical Emergencies" loading="lazy">
+                    <img class="service-card-image" src="images/2.jpg" alt="Medical Emergencies" loading="lazy">
                     <div class="service-card-body">
                         <div class="service-icon"><i class="ri-alarm-warning-line"></i></div>
                         <h4>Medical Emergencies</h4>
@@ -368,7 +330,7 @@
             </div>
             <div class="pricing-grid">
                 <div class="pricing-card reveal">
-                    <img class="pricing-card-image" src="https://images.unsplash.com/photo-1631217868264-eb2716756c4a?w=600&q=80" alt="Individual plan" loading="lazy">
+                    <img class="pricing-card-image" src="images/6.jpg" alt="Individual plan" loading="lazy">
                     <div class="pricing-name">Individual</div>
                     <ul class="pricing-features">
                         <li><i class="ri-check-line"></i> Medical consultations</li>
@@ -381,7 +343,7 @@
                 </div>
                 <div class="pricing-card featured reveal">
                     <div class="pricing-badge">Popular</div>
-                    <img class="pricing-card-image" src="https://images.unsplash.com/photo-1584515933487-7798247a3459?w=600&q=80" alt="Family plan" loading="lazy">
+                    <img class="pricing-card-image" src="images/3.jpg" alt="Family plan" loading="lazy">
                     <div class="pricing-name">Family</div>
                     <ul class="pricing-features">
                         <li><i class="ri-check-line"></i> Everything in Individual</li>
@@ -393,7 +355,7 @@
                     <a href="contact_en.html" class="btn btn-primary w-100">Contact us</a>
                 </div>
                 <div class="pricing-card reveal">
-                    <img class="pricing-card-image" src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&q=80" alt="Enterprise plan" loading="lazy">
+                    <img class="pricing-card-image" src="images/1.jpg" alt="Enterprise plan" loading="lazy">
                     <div class="pricing-name">Enterprise</div>
                     <ul class="pricing-features">
                         <li><i class="ri-check-line"></i> All Family services</li>
@@ -510,7 +472,7 @@
                     <ul class="footer-links">
                         <li><a href="#services">Teleconsultation</a></li>
                         <li><a href="#services">Online Pharmacy</a></li>
-                        <li><a href="#plans">Health Mutual</a></li>
+                        <li><a href="#plans">Health Mutual &amp; Insurance</a></li>
                         <li><a href="#services">Medical Tests</a></li>
                         <li><a href="#services">Emergencies</a></li>
                     </ul>
@@ -543,8 +505,8 @@
         </div>
     </footer>
 
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/lobiko.js"></script>
+    <script src="js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/lobiko.js" defer></script>
 </body>
 
 </html>
