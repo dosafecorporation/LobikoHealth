@@ -3,619 +3,634 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lobiko Health - Mutuelle | Télémédecine en Afrique</title>
-    <meta name="description" content="Lobiko Health révolutionne l'accès aux soins de santé en RDC. Téléconsultations, pharmacie en ligne, assurance santé digitale via WhatsApp.">
-    <link rel="icon" type="image/x-icon" href="images/logo.png">
-    
-    <!-- Fonts -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Lobiko Health — Mutuelle & Télémédecine digitale en RDC</title>
+    <meta name="description" content="Lobiko Health réinvente l'accès aux soins en République Démocratique du Congo. Mutuelle solidaire, téléconsultations WhatsApp, pharmacie en ligne et micro-assurance communautaire.">
+    <link rel="icon" type="image/png" href="images/logo-lobiko.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="css/remixicon.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-
-    <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/new-css.css">
+    <link rel="stylesheet" href="css/lobiko.css">
 </head>
 
-<body data-bs-spy="scroll" data-bs-target="#navbarCollapse">
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="spinner"></div>
-    </div>
+<body>
 
-    <!-- Navigation -->
-    <header>
-        <nav class="navbar navbar-expand-lg fixed-top navbar-custom" id="navbar">
+    <div id="preloader"><div class="spinner"></div></div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="#" id="nas">
-                    <img src="images/logo.png" alt="Logo santé" class="logo-img" width="50" height="50" />
-
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo-lobiko.png" alt="Lobiko Health">
                     Lobiko Health
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="collapse navbar-collapse" id="mainNav">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#home">Accueil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">À propos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#services">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#pricing">Tarifs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#testimonials">Témoignages</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link active" href="#home">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#pricing">Formules</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#process">Notre approche</a></li>
+                        <li class="nav-item"><a class="nav-link" href="equipe.html">Équipe</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     </ul>
-                    <div class="d-flex">
-                        <div class="d-flex">
-                        <div class="language-selector me-3">
-                            <a href="index.html" class="language-link">FR</a>
-                            <span class="language-separator">|</span>
-                            <a href="index_en.html" class="language-link active">EN</a>
+                    <div class="header-actions">
+                        <div class="lang-switch">
+                            <a href="index.html" class="active">FR</a>
+                            <span>|</span>
+                            <a href="index_en.html">EN</a>
                         </div>
-                        </a>
-                    </div>
+                        <a href="contact.html" class="btn btn-primary btn-sm">Parlons-en</a>
                     </div>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section" id="home">
+    <!-- Hero -->
+    <section class="hero" id="home">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <div class="hero-content animate-fade-in-up">
-                        <h1 class="hero-title">
-                            Soins de santé accessibles pour tous
-                        </h1>
-                        <p class="hero-subtitle">
-                            Lobiko Health révolutionne l'accès aux soins de santé en RDC grâce à une approche hybride combinant téléconsultations, 
-                            pharmacie en ligne, assurance santé digitale et micro-assurance communautaire, le tout via WhatsApp. 
-                        </p>
-                        <p class="hero-subtitle">
-                            Nous nous appuyons sur une mutuelle de santé solidaire pour garantir des soins accessibles, même aux populations non bancarisées.
-                        </p>
-
-                        <div class="hero-buttons">
-                            <a href="#" class="btn-whatsapp">
-                                <i class="ri-whatsapp-line"></i>
-                                Consultation WhatsApp
-                            </a>
-                            <a href="#services" class="btn-secondary-custom">
-                                Découvrir nos services
-                            </a>
-                        </div>
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="hero-badge">
+                        <i class="ri-heart-pulse-line"></i>
+                        Santé digitale en République Démocratique du Congo
                     </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
-    
-
-    <!-- About Section -->
-    <section class="section bg-light-custom" id="about">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <img src="images/3.jpg" alt="À propos de Lobiko Health" class="img-fluid rounded-4">
-                </div>
-                <div class="col-lg-6">
-                    <h2 class="section-title text-start">Qui sommes-nous ?</h2>
-                    <p class="section-subtitle text-start">
-                        <strong>Lobiko Health</strong> est une plateforme de santé numérique innovante qui démocratise 
-                        l'accès aux soins médicaux de qualité en République Démocratique du Congo en s'appuyant sur une mutuelle solidaire et un crédit assurance.
+                    <h1 class="hero-title">
+                        La santé <span class="highlight">réinventée</span> pour tous
+                    </h1>
+                    <p class="hero-subtitle">
+                        Lobiko Health améliore l'accès aux soins grâce à une mutuelle solidaire, la télémédecine via WhatsApp
+                        et une micro-assurance adaptée aux entreprises et aux communautés en RDC.
                     </p>
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <div class="d-flex align-items-start">
-                                <i class="ri-shield-check-line text-primary fs-3 me-3 mt-1"></i>
-                                <div>
-                                    <h5>Médecins certifiés</h5>
-                                    <p class="text-muted">Tous nos praticiens sont diplômés et agréés par l'Ordre des Médecins.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="d-flex align-items-start">
-                                <i class="ri-time-line text-primary fs-3 me-3 mt-1"></i>
-                                <div>
-                                    <h5>Disponibilité 24/7</h5>
-                                    <p class="text-muted">Accès aux soins d'urgence et consultations à tout moment.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="d-flex align-items-start">
-                                <i class="ri-smartphone-line text-primary fs-3 me-3 mt-1"></i>
-                                <div>
-                                    <h5>Technologie simple</h5>
-                                    <p class="text-muted">Interface WhatsApp familière, accessible à tous.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="d-flex align-items-start">
-                                <i class="ri-money-dollar-circle-line text-primary fs-3 me-3 mt-1"></i>
-                                <div>
-                                    <h5>Protection financière</h5>
-                                    <p class="text-muted">Mutuelle solidaire entre membres</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="hero-actions">
+                        <a href="contact.html" class="btn btn-primary btn-lg">Parlons-en</a>
+                        <a href="https://wa.me/243829037620" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">
+                            <i class="ri-whatsapp-line"></i> Consultation WhatsApp
+                        </a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="section" id="services">
-        <div class="container">
-            <h2 class="section-title">Nos Services</h2>
-            <p class="section-subtitle">
-                Une gamme complète de services de santé numérique pour répondre à tous vos besoins médicaux.
-            </p>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="ri-video-chat-line"></i>
-                        </div>
-                        <h3 class="feature-title">Téléconsultation</h3>
-                        <p class="feature-description">
-                            Consultez nos médecins spécialisés via WhatsApp. Diagnostic, prescription et suivi médical à distance.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="ri-medicine-bottle-line"></i>
-                        </div>
-                        <h3 class="feature-title">Pharmacie en ligne</h3>
-                        <p class="feature-description">
-                            Commandez vos médicaments en ligne et recevez-les directement à domicile avec notre service de livraison.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="ri-shield-cross-line"></i>
-                        </div>
-                        <h3 class="feature-title">Mutuelle de santé</h3>
-                        <p class="feature-description">
-                            Mutuelle digitale : couverture abordable + crédit santé pour opérateurs économiques.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="ri-test-tube-line"></i>
-                        </div>
-                        <h3 class="feature-title">Analyses médicales</h3>
-                        <p class="feature-description">
-                            Prélèvements à domicile et analyses en laboratoire avec résultats transmis rapidement.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
+                <div class="col-lg-6">
+                    <div class="hero-image-wrap reveal">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=80"
+                            alt="Professionnel de santé utilisant la télémédecine Lobiko" loading="lazy">
+                        <div class="hero-image-badge">
                             <i class="ri-heart-pulse-line"></i>
+                            <div>
+                                <strong>Plateforme de santé tout-en-un</strong>
+                                <span>Consultations, mutuelle, pharmacie — depuis votre téléphone</span>
+                            </div>
                         </div>
-                        <h3 class="feature-title">Suivi chronique</h3>
-                        <p class="feature-description">
-                            Gestion et suivi personnalisé des maladies chroniques (diabète, hypertension, etc.).
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="ri-alarm-warning-line"></i>
-                        </div>
-                        <h3 class="feature-title">Urgences médicales</h3>
-                        <p class="feature-description">
-                            Service d'urgence 24/7 avec orientation vers les structures de soins appropriées.
-                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How it works -->
-    <section class="section bg-light-custom">
+    <!-- Visual gallery -->
+    <section class="section section-alt" style="padding-top:2rem;padding-bottom:2rem;">
         <div class="container">
-            <h2 class="section-title">Comment ça marche ?</h2>
-            <p class="section-subtitle">
-                Accédez aux soins de santé en 3 étapes simples via WhatsApp.
-            </p>
-            <div class="row">
-                <div class="col-lg-4 text-center mb-4">
-                    <div class="feature-icon mx-auto mb-3">
-                        <i class="ri-chat-3-line"></i>
-                    </div>
-                    <h4>1. Contactez-nous</h4>
-                    <p class="text-muted">Cliquez sur le bouton WhatsApp et décrivez votre problème de santé.</p>
+            <div class="visual-gallery reveal">
+                <img src="https://images.unsplash.com/photo-1631217868264-eb2716756c4a?w=600&q=80" alt="Médecin Lobiko Health" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1512941937669-90a1da001e4c?w=600&q=80" alt="Téléconsultation mobile" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1587854692152-c104968622bb?w=600&q=80" alt="Pharmacie et médicaments" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&q=80" alt="Équipe en entreprise" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item reveal">
+                    <div class="stat-number"><span data-count="500" data-suffix="+">0</span></div>
+                    <div class="stat-label">Membres actifs</div>
                 </div>
-                <div class="col-lg-4 text-center mb-4">
-                    <div class="feature-icon mx-auto mb-3">
-                        <i class="ri-user-heart-line"></i>
-                    </div>
-                    <h4>2. Consultez un médecin</h4>
-                    <p class="text-muted">Un médecin qualifié vous répond et effectue votre consultation.</p>
+                <div class="stat-item reveal">
+                    <div class="stat-number"><span data-count="50" data-suffix="+">0</span></div>
+                    <div class="stat-label">Entreprises partenaires</div>
                 </div>
-                <div class="col-lg-4 text-center mb-4">
-                    <div class="feature-icon mx-auto mb-3">
-                        <i class="ri-truck-line"></i>
-                    </div>
-                    <h4>3. Recevez vos soins</h4>
-                    <p class="text-muted">Prescription, médicaments et suivi livrés directement chez vous.</p>
+                <div class="stat-item reveal">
+                    <div class="stat-number"><span data-count="120" data-suffix="+">0</span></div>
+                    <div class="stat-label">Prestataires de santé</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-number"><span data-count="15" data-suffix="+">0</span></div>
+                    <div class="stat-label">Villes couvertes</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
+    <!-- Health Plans -->
+    <section class="section" id="plans">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Forfaits santé</span>
+                <h2 class="section-title">Des formules adaptées à chaque besoin</h2>
+                <p class="section-desc">
+                    Que vous soyez une entreprise, une ONG ou un particulier, nos forfaits offrent à vos équipes
+                    et à leurs familles la couverture et le soutien dont ils ont besoin.
+                </p>
+            </div>
+
+            <div class="feature-block reveal">
+                <div class="feature-content">
+                    <h3>Mutuelle solidaire & crédit santé</h3>
+                    <p>
+                        Notre mutuelle digitale combine couverture abordable et crédit santé pour les opérateurs
+                        économiques, garantissant des soins accessibles même aux populations non bancarisées.
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="ri-check-line"></i> Couverture hospitalisation et consultations</li>
+                        <li><i class="ri-check-line"></i> Paiement via Mobile Money (M-Pesa, Orange, Airtel)</li>
+                        <li><i class="ri-check-line"></i> Gestion du dossier médical numérique</li>
+                        <li><i class="ri-check-line"></i> Formules entreprise et communautaire</li>
+                    </ul>
+                    <a href="#pricing" class="btn btn-primary">Découvrir nos formules</a>
+                </div>
+                <div class="feature-visual">
+                    <img src="https://images.unsplash.com/photo-1584433144859-1fc3aed64bbb?w=800&q=80"
+                        alt="Mutuelle solidaire Lobiko Health" loading="lazy">
+                    <span class="feature-visual-badge">Mutuelle</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Telemedicine -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="feature-block reverse reveal">
+                <div class="feature-content">
+                    <span class="section-label">Télémédecine</span>
+                    <h3>Consultez un médecin par WhatsApp</h3>
+                    <p>
+                        Avec l'application Lobiko Health, les membres accèdent immédiatement à des médecins certifiés
+                        via des consultations virtuelles. Prescriptions et livraison de médicaments à domicile ou au bureau.
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="ri-check-line"></i> Médecins agréés par l'Ordre des Médecins de RDC</li>
+                        <li><i class="ri-check-line"></i> Interface WhatsApp familière et accessible</li>
+                        <li><i class="ri-check-line"></i> Prescriptions électroniques et suivi personnalisé</li>
+                    </ul>
+                        <a href="https://wa.me/243829037620" class="btn btn-whatsapp" target="_blank" rel="noopener">
+                        <i class="ri-whatsapp-line"></i> Démarrer une consultation
+                    </a>
+                </div>
+                <div class="feature-visual">
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1da001e4c?w=800&q=80"
+                        alt="Consultation médicale via WhatsApp" loading="lazy">
+                    <span class="feature-visual-badge">WhatsApp</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clinical Services -->
+    <section class="section">
+        <div class="container">
+            <div class="feature-block reveal">
+                <div class="feature-content">
+                    <span class="section-label">Services cliniques</span>
+                    <h3>Un réseau de prestataires de qualité</h3>
+                    <p>
+                        Lobiko Health collabore avec un réseau croissant de cliniques, laboratoires et pharmacies
+                        pour offrir des services conformes aux standards internationaux — du diagnostic à la prise en charge spécialisée.
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="ri-check-line"></i> Analyses médicales et prélèvements à domicile</li>
+                        <li><i class="ri-check-line"></i> Suivi des maladies chroniques</li>
+                        <li><i class="ri-check-line"></i> Orientation urgences 24h/24</li>
+                    </ul>
+                    <a href="#services" class="btn btn-outline">Découvrir nos services</a>
+                </div>
+                <div class="feature-visual">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd02d6ac0?w=800&q=80"
+                        alt="Réseau de cliniques partenaires" loading="lazy">
+                    <span class="feature-visual-badge">Réseau</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="section section-alt" id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Nos produits</span>
+                <h2 class="section-title">Une gamme complète de solutions santé</h2>
+                <p class="section-desc">
+                    Des produits d'assurance et de santé digitale conçus pour répondre aux réalités du marché congolais.
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <img class="service-card-image" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80" alt="Téléconsultation" loading="lazy">
+                    <div class="service-card-body">
+                        <div class="service-icon"><i class="ri-video-chat-line"></i></div>
+                        <h4>Téléconsultation</h4>
+                        <p>Consultations médicales à distance via WhatsApp avec diagnostic, prescription et suivi.</p>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <img class="service-card-image" src="https://images.unsplash.com/photo-1587854692152-c104968622bb?w=600&q=80" alt="Pharmacie en ligne" loading="lazy">
+                    <div class="service-card-body">
+                        <div class="service-icon"><i class="ri-medicine-bottle-line"></i></div>
+                        <h4>Pharmacie en ligne</h4>
+                        <p>Commande et livraison de médicaments à domicile sous 24 à 48 heures.</p>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <img class="service-card-image" src="https://images.unsplash.com/photo-1584433144859-1fc3aed64bbb?w=600&q=80" alt="Mutuelle de santé" loading="lazy">
+                    <div class="service-card-body">
+                        <div class="service-icon"><i class="ri-shield-cross-line"></i></div>
+                        <h4>Mutuelle de santé</h4>
+                        <p>Couverture abordable avec crédit santé pour opérateurs économiques et PME.</p>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <img class="service-card-image" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80" alt="Analyses médicales" loading="lazy">
+                    <div class="service-card-body">
+                        <div class="service-icon"><i class="ri-test-tube-line"></i></div>
+                        <h4>Analyses médicales</h4>
+                        <p>Prélèvements à domicile et résultats de laboratoire transmis rapidement.</p>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <img class="service-card-image" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80&sat=-50" alt="Suivi chronique" loading="lazy">
+                    <div class="service-card-body">
+                        <div class="service-icon"><i class="ri-heart-pulse-line"></i></div>
+                        <h4>Suivi chronique</h4>
+                        <p>Gestion personnalisée du diabète, de l'hypertension et autres pathologies chroniques.</p>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <img class="service-card-image" src="https://images.unsplash.com/photo-1519494026892-80bbd02d6ac0?w=600&q=80" alt="Urgences médicales" loading="lazy">
+                    <div class="service-card-body">
+                        <div class="service-icon"><i class="ri-alarm-warning-line"></i></div>
+                        <h4>Urgences médicales</h4>
+                        <p>Service d'urgence 24/7 avec orientation vers les structures de soins adaptées.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section" id="process">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Notre processus</span>
+                <h2 class="section-title">Nous simplifions la santé pour vous</h2>
+                <p class="section-desc">
+                    De l'inscription au remboursement, notre technologie prend en charge l'essentiel pour vous et vos membres.
+                </p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step reveal">
+                    <div class="process-number">1</div>
+                    <h4>Conception produit</h4>
+                    <p>Formules sur mesure adaptées à votre organisation et à vos membres.</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="process-number">2</div>
+                    <h4>Sensibilisation</h4>
+                    <p>Éducation et information via WhatsApp et campagnes ciblées.</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="process-number">3</div>
+                    <h4>Inscription & KYC</h4>
+                    <p>Adhésion simplifiée et vérification d'identité via mobile money.</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="process-number">4</div>
+                    <h4>Accès aux soins</h4>
+                    <p>Consultations, prescriptions et orientation vers le réseau partenaire.</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="process-number">5</div>
+                    <h4>Remboursement</h4>
+                    <p>Traitement des demandes et paiements rapides sur mobile money.</p>
+                </div>
+            </div>
+
+            <div class="tech-section reveal">
+                <div class="section-header" style="margin-bottom:0;">
+                    <span class="section-label" style="color:var(--color-orange);">Technologie</span>
+                    <h2 class="section-title">Une plateforme digitale de pointe</h2>
+                    <p class="section-desc">
+                        Intégration fluide, traitement des demandes accéléré et données en temps réel pour une expérience sans friction.
+                    </p>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <i class="ri-whatsapp-line"></i>
+                        <h4>Claims via WhatsApp</h4>
+                        <p>Soumission et suivi des demandes directement depuis WhatsApp, sans application complexe.</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="ri-bar-chart-box-line"></i>
+                        <h4>Données en temps réel</h4>
+                        <p>Tableaux de bord pour entreprises et partenaires avec indicateurs clés actualisés.</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="ri-shield-check-line"></i>
+                        <h4>Administration instantanée</h4>
+                        <p>Activation de police, partage KYC et onboarding des membres en quelques minutes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pillars -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Pourquoi Lobiko</span>
+                <h2 class="section-title">Ce que nos membres apprécient</h2>
+            </div>
+            <div class="pillars-grid">
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon"><i class="ri-thumb-up-line"></i></div>
+                    <h4>Simple</h4>
+                    <p>Tout se fait via WhatsApp — pas d'application à télécharger, pas de paperasse inutile.</p>
+                </div>
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon"><i class="ri-wallet-3-line"></i></div>
+                    <h4>Abordable</h4>
+                    <p>Des formules accessibles, adaptées aux réalités économiques locales.</p>
+                </div>
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon"><i class="ri-flashlight-line"></i></div>
+                    <h4>Rapide</h4>
+                    <p>Consultations en quelques minutes et remboursements traités sous 72 heures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
     <section class="section" id="pricing">
         <div class="container">
-            <h2 class="section-title">Nos Forfaits</h2>
-            <p class="section-subtitle">
-                Choisissez le forfait qui correspond le mieux à vos besoins de santé et à votre budget.
-            </p>
-            <div class="row justify-content-center">
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="pricing-card">
-                        <h3 class="text-center mb-3">Essentiel</h3>
-                        <div class="text-center">
-                            <div class="pricing-price">10$</div>
-                            <div class="pricing-period">par mois</div>
-                        </div>
-                        <ul class="pricing-features">
-                            <li><i class="ri-check-line"></i> Consultations médicales</li>
-                            <li><i class="ri-check-line"></i> Prescription électronique</li>
-                            <li><i class="ri-check-line"></i> Analyses de base</li>
-                            <li><i class="ri-check-line"></i> Support WhatsApp</li>
-                            <li><i class="ri-check-line"></i> Dossier médical numérique</li>
-                        </ul>
-                        <div class="text-center">
-                            <a href="" class="btn btn-primary-custom w-100">Choisir ce forfait</a>
-                        </div>
-                    </div>
+            <div class="section-header reveal">
+                <span class="section-label">Nos formules</span>
+                <h2 class="section-title">Individuel, Famille ou Entreprise</h2>
+                <p class="section-desc">Choisissez la formule qui correspond à vos besoins. Contactez-nous pour un devis personnalisé.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card reveal">
+                    <img class="pricing-card-image" src="https://images.unsplash.com/photo-1631217868264-eb2716756c4a?w=600&q=80" alt="Formule Individuel" loading="lazy">
+                    <div class="pricing-name">Individuel</div>
+                    <ul class="pricing-features">
+                        <li><i class="ri-check-line"></i> Consultations médicales</li>
+                        <li><i class="ri-check-line"></i> Prescription électronique</li>
+                        <li><i class="ri-check-line"></i> Analyses de base</li>
+                        <li><i class="ri-check-line"></i> Support WhatsApp</li>
+                        <li><i class="ri-check-line"></i> Dossier médical numérique</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline w-100">Nous contacter</a>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="pricing-card featured">
-                        <h3 class="text-center mb-3">Confort</h3>
-                        <div class="text-center">
-                            <div class="pricing-price">25$</div>
-                            <div class="pricing-period">par mois</div>
-                        </div>
-                        <ul class="pricing-features">
-                            <li><i class="ri-check-line"></i> Consultations médicales</li>
-                            <li><i class="ri-check-line"></i> Consultation spécialiste</li>
-                            <li><i class="ri-check-line"></i> Prescription électronique</li>
-                            <li><i class="ri-check-line"></i> Livraison médicaments</li>
-                            <li><i class="ri-check-line"></i> Analyses de base</li>
-                        </ul>
-                        <div class="text-center">
-                            <a href="" class="btn btn-primary-custom w-100">Choisir ce forfait</a>
-                        </div>
-                    </div>
+                <div class="pricing-card featured reveal">
+                    <div class="pricing-badge">Populaire</div>
+                    <img class="pricing-card-image" src="https://images.unsplash.com/photo-1584515933487-7798247a3459?w=600&q=80" alt="Formule Famille" loading="lazy">
+                    <div class="pricing-name">Famille</div>
+                    <ul class="pricing-features">
+                        <li><i class="ri-check-line"></i> Tout le forfait Individuel</li>
+                        <li><i class="ri-check-line"></i> Consultation spécialiste</li>
+                        <li><i class="ri-check-line"></i> Livraison médicaments</li>
+                        <li><i class="ri-check-line"></i> Couverture famille (4 pers.)</li>
+                        <li><i class="ri-check-line"></i> Suivi chronique inclus</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary w-100">Nous contacter</a>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="pricing-card">
-                        <h3 class="text-center mb-3">Premium</h3>
-                        <div class="text-center">
-                            <div class="pricing-price">45$</div>
-                            <div class="pricing-period">par mois</div>
-                        </div>
-                        <ul class="pricing-features">
-                            <li><i class="ri-check-line"></i> Tous les services Confort</li>
-                            <li><i class="ri-check-line"></i> Hospitalisation couverte</li>
-                            <li><i class="ri-check-line"></i> Imagerie médicale</li>
-                            <li><i class="ri-check-line"></i> Soins dentaires</li>
-                            <li><i class="ri-check-line"></i> Optique</li>
-                            <li><i class="ri-check-line"></i> Médecin de famille dédié</li>
-                        </ul>
-                        <div class="text-center">
-                            <a href="" class="btn btn-primary-custom w-100">Choisir ce forfait</a>
-                        </div>
-                    </div>
+                <div class="pricing-card reveal">
+                    <img class="pricing-card-image" src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&q=80" alt="Formule Entreprise" loading="lazy">
+                    <div class="pricing-name">Entreprise</div>
+                    <ul class="pricing-features">
+                        <li><i class="ri-check-line"></i> Tous les services Famille</li>
+                        <li><i class="ri-check-line"></i> Hospitalisation couverte</li>
+                        <li><i class="ri-check-line"></i> Imagerie médicale</li>
+                        <li><i class="ri-check-line"></i> Soins dentaires & optique</li>
+                        <li><i class="ri-check-line"></i> Médecin de famille dédié</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline w-100">Nous contacter</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
-    <section class="section bg-light-custom" id="testimonials">
+    <section class="section section-alt" id="testimonials">
         <div class="container">
-            <h2 class="section-title">Témoignages des membres</h2>
-            <p class="section-subtitle">
-                Découvrez ce que nos membres déclarent
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="testimonial-card">
-                        <img src="images/comments.png" alt="Jean Mukendi" class="testimonial-avatar">
-                        <div class="stars">
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
+            <div class="section-header reveal">
+                <span class="section-label">Témoignages</span>
+                <h2 class="section-title">Ce que dit notre communauté</h2>
+                <p class="section-desc">Quand patients, entreprises et prestataires se connectent, tout le monde en bénéficie.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-quote">
+                        Lobiko Health est une solution qui pourra transformer le système sanitaire en RDC.
+                        La technologie WhatsApp rend les soins enfin accessibles.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">GB</div>
+                        <div class="testimonial-info">
+                            <strong><span class="testimonial-dot"></span>Gael Baheha</strong>
+                            <span>Entrepreneur, Kinshasa</span>
                         </div>
-                        <p class="testimonial-text">
-                            "Lobiko Health est une solution qui pourra changer la vue du système sanitaire en RDC"
-                        </p>
-                        <div class="testimonial-author">Gael Baheha</div>
-                        <div class="testimonial-role">Kinshasa</div>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="testimonial-card">
-                        <img src="images/comments.png" alt="Jean Mukendi" class="testimonial-avatar">
-                        <div class="stars">
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-quote">
+                        Une solution innovante pour reconstruire la confiance dans notre système de santé.
+                        Mes employés peuvent consulter un médecin sans quitter leur poste.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JM</div>
+                        <div class="testimonial-info">
+                            <strong><span class="testimonial-dot"></span>Jean Mukendi</strong>
+                            <span>Directeur RH, Kinshasa</span>
                         </div>
-                        <p class="testimonial-text">
-                            "Une solution innovante pour reconstruire la confiance dans notre système de santé."
-                        </p>
-                        <div class="testimonial-author">Jean Mukendi</div>
-                        <div class="testimonial-role">Kinshasa</div>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="testimonial-card">
-                        <img src="images/comments.png" alt="Jean Mukendi" class="testimonial-avatar">
-                        <div class="stars">
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-quote">
+                        Pour que chaque vie compte, indépendamment des moyens financiers.
+                        Lobiko Health rend cela possible avec des forfaits abordables.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">EM</div>
+                        <div class="testimonial-info">
+                            <strong><span class="testimonial-dot"></span>Elie Mumboko</strong>
+                            <span>Membre, Kinshasa</span>
                         </div>
-                        <p class="testimonial-text">
-                            " Pour que chaque vie compte, indépendamment des moyens financiers.""
-                        </p>
-                        <div class="testimonial-author">Elie Mumboko</div>
-                        <div class="testimonial-role">Kinshasa</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- FAQ -->
     <section class="section" id="faq">
         <div class="container">
-            <h2 class="section-title">Questions fréquentes</h2>
-            <p class="section-subtitle">
-                Trouvez rapidement les réponses aux questions les plus courantes sur nos services.
-            </p>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="accordion" id="faqAccordion">
-                        <div class="faq-item">
-                            <div class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                Comment puis-je consulter un médecin via WhatsApp ?
-                                <i class="ri-arrow-down-s-line ms-auto"></i>
-                            </div>
-                            <div id="faq1" class="collapse show" data-bs-parent="#faqAccordion">
-                                <div class="faq-answer">
-                                    Il suffit de cliquer sur le bouton WhatsApp sur notre site, de décrire votre problème de santé, 
-                                    et un médecin qualifié vous répondra dans les plus brefs délais pour effectuer votre consultation.
-                                </div>
-                            </div>
+            <div class="section-header reveal">
+                <span class="section-label">FAQ</span>
+                <h2 class="section-title">Questions fréquentes</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item open reveal">
+                    <button class="faq-question">
+                        Comment consulter un médecin via WhatsApp ?
+                        <i class="ri-arrow-down-s-line"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Cliquez sur le bouton WhatsApp, décrivez votre problème de santé et un médecin qualifié
+                            vous répondra rapidement pour effectuer votre consultation à distance.
                         </div>
-                        <div class="faq-item">
-                            <div class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                Vos médecins sont-ils vraiment qualifiés ?
-                                <i class="ri-arrow-down-s-line ms-auto"></i>
-                            </div>
-                            <div id="faq2" class="collapse" data-bs-parent="#faqAccordion">
-                                <div class="faq-answer">
-                                    Oui, tous nos médecins sont diplômés d'universités reconnues et agréés par l'Ordre des Médecins 
-                                    de la RDC. Ils ont également suivi une formation spécialisée en télémédecine.
-                                </div>
-                            </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        Vos médecins sont-ils certifiés ?
+                        <i class="ri-arrow-down-s-line"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Oui, tous nos praticiens sont diplômés d'universités reconnues et agréés par l'Ordre des Médecins
+                            de la RDC, avec une formation spécialisée en télémédecine.
                         </div>
-                        <div class="faq-item">
-                            <div class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                Comment fonctionne la livraison de médicaments ?
-                                <i class="ri-arrow-down-s-line ms-auto"></i>
-                            </div>
-                            <div id="faq3" class="collapse" data-bs-parent="#faqAccordion">
-                                <div class="faq-answer">
-                                    Après votre consultation, si le médecin prescrit des médicaments, vous pouvez les commander 
-                                    directement via WhatsApp. Nous les livrons à votre domicile dans les 24h à Kinshasa et 48h dans les autres villes.
-                                </div>
-                            </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        Comment fonctionne la livraison de médicaments ?
+                        <i class="ri-arrow-down-s-line"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Après consultation, commandez vos médicaments via WhatsApp. Livraison sous 24h à Kinshasa
+                            et 48h dans les autres villes couvertes.
                         </div>
-                        <div class="faq-item">
-                            <div class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq4">
-                                Quels sont les moyens de paiement acceptés ?
-                                <i class="ri-arrow-down-s-line ms-auto"></i>
-                            </div>
-                            <div id="faq4" class="collapse" data-bs-parent="#faqAccordion">
-                                <div class="faq-answer">
-                                    Nous acceptons tous les moyens de paiement mobile money (M-Pesa, Orange Money, Airtel Money) 
-                                    ainsi que les virements bancaires et les cartes de crédit.
-                                </div>
-                            </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        Quels moyens de paiement acceptez-vous ?
+                        <i class="ri-arrow-down-s-line"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Mobile Money (M-Pesa, Orange Money, Airtel Money), virements bancaires et cartes de crédit.
                         </div>
-                        <div class="faq-item">
-                            <div class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq5">
-                                Puis-je annuler mon abonnement à tout moment ?
-                                <i class="ri-arrow-down-s-line ms-auto"></i>
-                            </div>
-                            <div id="faq5" class="collapse" data-bs-parent="#faqAccordion">
-                                <div class="faq-answer">
-                                    Oui, vous pouvez annuler votre abonnement à tout moment sans frais. 
-                                    L'annulation prend effet à la fin de votre période de facturation en cours.
-                                </div>
-                            </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        Puis-je résilier mon abonnement ?
+                        <i class="ri-arrow-down-s-line"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Oui, sans frais, à tout moment. La résiliation prend effet à la fin de la période en cours.
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container reveal">
+            <h2>Prêt à améliorer la santé de votre équipe ?</h2>
+            <p>
+                Offrez à vos collaborateurs une expérience santé fiable et moderne avec Lobiko Health.
+                Rejoignez les entreprises qui nous font confiance en RDC.
+            </p>
+            <a href="contact.html" class="btn btn-accent btn-lg">Parlons-en</a>
+            <a href="https://wa.me/243829037620" class="btn btn-outline btn-lg" target="_blank" rel="noopener">
+                <i class="ri-whatsapp-line"></i> WhatsApp
+            </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer" id="contact">
+    <footer class="site-footer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="footer-section">
-                        <h5>Lobiko Health</h5>
-                        <p id="texs">
-                            Votre partenaire de confiance pour des soins de santé accessibles et de qualité. 
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <a class="navbar-brand" href="index.html">
+                            <img src="images/logo-lobiko.png" alt="Lobiko Health">
+                            Lobiko Health
+                        </a>
+                        <p>
+                            Votre partenaire de confiance pour des soins accessibles et de qualité en RDC.
                             Nous révolutionnons l'accès aux services médicaux grâce à la technologie.
                         </p>
-                        <div class="social-links">
-                            <a href="https://web.facebook.com/profile.php?id=61577894590438" class="social-link">
-                                <i class="ri-facebook-fill"></i>
-                            </a>
-                            <a href="#" class="social-link">
-                                <i class="ri-instagram-line"></i>
-                            </a>
-                            <a href="#" class="social-link">
-                                <i class="ri-linkedin-box-fill"></i>
-                            </a>
-                            <a href="#" class="social-link">
-                                <i class="ri-twitter-fill"></i>
-                            </a>
+                        <div class="footer-social">
+                            <a href="https://web.facebook.com/profile.php?id=61577894590438" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-box-fill"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <div class="footer-section">
-                        <h5>Services</h5>
-                        <a href="#" class="footer-link">Téléconsultation</a>
-                        <a href="#" class="footer-link">Pharmacie en ligne</a>
-                        <a href="#" class="footer-link">Assurance santé</a>
-                        <a href="#" class="footer-link">Analyses médicales</a>
-                        <a href="#" class="footer-link">Urgences</a>
-                    </div>
+                <div class="col-6 col-lg-2">
+                    <h5 class="footer-heading">Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="#services">Téléconsultation</a></li>
+                        <li><a href="#services">Pharmacie en ligne</a></li>
+                        <li><a href="#plans">Mutuelle santé</a></li>
+                        <li><a href="#services">Analyses médicales</a></li>
+                        <li><a href="#services">Urgences</a></li>
+                    </ul>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <div class="footer-section">
-                        <h5>Entreprise</h5>
-                        <a href="#" class="footer-link">À propos</a>
-                        <a href="equipe.html" class="footer-link">Notre équipe</a>
-                        <a href="#" class="footer-link">Carrières</a>
-                        <a href="#" class="footer-link">Presse</a>
-                        <a href="contact.html" class="footer-link">Contact</a>
-                    </div>
+                <div class="col-6 col-lg-2">
+                    <h5 class="footer-heading">Entreprise</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html#plans">À propos</a></li>
+                        <li><a href="equipe.html">Notre équipe</a></li>
+                        <li><a href="#">Carrières</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
                 </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="footer-section">
-                        <h5>Newsletter</h5>
-                        <p class="text-muted">
-                            Restez informé des dernières actualités santé et de nos nouveaux services.
-                        </p>
-                        <div class="d-flex gap-2">
-                            <input type="email" class="form-control" placeholder="Votre email">
-                            <button class="btn btn-primary-custom">S'abonner</button>
-                        </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-heading">Newsletter</h5>
+                    <p style="font-size:0.9375rem;margin-bottom:1rem;">Recevez nos actualités et conseils santé.</p>
+                    <div class="footer-newsletter">
+                        <input type="email" placeholder="Votre adresse email">
+                        <button class="btn btn-primary btn-sm w-100">S'abonner</button>
                     </div>
                 </div>
             </div>
-            <hr class="my-4 border-secondary">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p>© 2024 Lobiko Health. Tous droits réservés.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#" class="footer-link me-3">Conditions d'utilisation</a>
-                    <a href="#" class="footer-link">Politique de confidentialité</a>
+            <div class="footer-bottom">
+                <p>© 2026 Lobiko Health. Tous droits réservés. <span class="footer-tagline">Vous pouvez compter sur nous.</span></p>
+                <div class="footer-bottom-links">
+                    <a href="#">Conditions d'utilisation</a>
+                    <a href="#">Politique de confidentialité</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Preloader
-        window.addEventListener('load', function() {
-            document.getElementById('preloader').style.display = 'none';
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-                navbar.style.boxShadow = 'none';
-            }
-        });
-
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in-up');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.feature-card, .pricing-card, .testimonial-card').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+    <script src="js/lobiko.js"></script>
 </body>
 
 </html>
